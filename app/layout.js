@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
       }}
     >
       <html lang="en">
+        <head></head>
         <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
           {children}
         </body>
