@@ -11,7 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "../app/plainstyles.css";
-import { useEffect } from "react";
+import slides from "@/constants/slides.js";
 import Image from "next/image";
 
 const LandingPage = () => {
@@ -42,95 +42,11 @@ const LandingPage = () => {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
       >
-        <SwiperSlide>
-          <Image
-            src={"/images/slide/slide1.jpg"}
-            alt="image"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/images/slide/slide2.jpg"}
-            alt="image"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/images/slide/slide3.jpg"}
-            alt="image"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/images/slide/slide4.jpg"}
-            alt="image"
-            className="swiper-slide"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/images/slide/slide5.jpg"}
-            alt="image"
-            className="swiper-slide"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Image
-            src={"/images/slide/slide6.jpg"}
-            alt="image"
-            className="swiper-slide"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/images/slide/slide7.jpg"}
-            alt="image"
-            className="swiper-slide"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Image
-            src={"/images/slide/slide8.jpg"}
-            alt="image"
-            className="swiper-slide"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/images/slide/slide9.jpg"}
-            alt="image"
-            className="swiper-slide"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/images/slide/slide10.jpg"}
-            alt="image"
-            className="swiper-slide"
-            width={480}
-            height={480}
-          />
-        </SwiperSlide>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <Image src={slide} alt="image" width={480} height={480} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );

@@ -1,5 +1,9 @@
 import React from "react";
 import "../app/plainstyles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faShare, faEye } from "@fortawesome/free-solid-svg-icons";
+import imageInfo from "@/constants/gallery";
+import Image from "next/image";
 
 const Gallery = () => {
   return (
@@ -9,155 +13,17 @@ const Gallery = () => {
       </h1>
 
       <div class="box-container">
-        <div class="box">
-          <img src="images/gallery/gallery1.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
+        {imageInfo.map((image, index) => (
+          <div className="box" key={index}>
+            <Image src={image.src} alt={image.title} width={300} height={300} />
+            <h3 class="title">{image.title}</h3>
+            <div class="icons flex justify-around">
+              <FontAwesomeIcon icon={faHeart} className="size-12" />
+              <FontAwesomeIcon icon={faShare} className="size-12" />
+              <FontAwesomeIcon icon={faEye} className="size-12" />
+            </div>
           </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery2.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-
-        <div class="box">
-          <img src="images/gallery/gallery3.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-
-        <div class="box">
-          <img src="images/gallery/gallery4.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery5.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery6.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-
-        <div class="box">
-          <img src="images/gallery/gallery7.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery8.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery23.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-
-        <div class="box">
-          <img src="images/gallery/gallery10.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-
-        <div class="box">
-          <img src="images/gallery/gallery11.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery12.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery13.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery14.jpg" />
-          <h3 class="title"> Photos and events</h3> /
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/gallery/gallery15.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div>
-        {/* <div class="box">
-          <img src="images/gallery/gallery25.jpg" />
-          <h3 class="title"> Photos and events</h3>
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-share"></a>
-            <a href="#" class="fas fa-eye"></a>
-          </div>
-        </div> */}
+        ))}
       </div>
     </section>
   );
