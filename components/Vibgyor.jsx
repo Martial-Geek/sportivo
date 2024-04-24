@@ -1,8 +1,27 @@
-import Image from "next/image";
-import React from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 import "../app/plainstyles.css";
+import { ref, getDownloadURL } from "firebase/storage";
+import storage from "@/firebaseConfig";
+import Image from "next/image";
 
 const Vibgyor = () => {
+  const [imageUrl, setImageUrl] = useState("");
+
+  useEffect(() => {
+    const imageRef = ref(storage, "assets/vib.gif");
+
+    console.log(imageRef);
+
+    getDownloadURL(imageRef)
+      .then((url) => {
+        setImageUrl(url);
+      })
+      .catch((error) => {
+        console.error("Error getting download URL:", error);
+      });
+  }, []);
   return (
     <section class="vibgyor" id="vibgyor">
       <h1 class="heading">
@@ -10,12 +29,7 @@ const Vibgyor = () => {
       </h1>
       <div class="row">
         <div class="image">
-          <Image
-            src={"/assets/vib.gif"}
-            width={500}
-            height={500}
-            alt="vibgyor"
-          />
+          <Image src={imageUrl} width={500} height={500} alt="vibgyor" />
         </div>
 
         <div class="content">
@@ -38,9 +52,12 @@ const Vibgyor = () => {
             making VIBGYOR a truly diverse and thrilling experience for all
             participants and spectators.
           </p>
-          <a href="#vibgyor" class="btn">
+          {/* <a href="#vibgyor" class="btn">
             Read More
-          </a>
+          </a> */}
+          <button className="rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+            Read More
+          </button>
         </div>
       </div>
     </section>

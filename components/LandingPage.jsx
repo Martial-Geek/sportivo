@@ -1,5 +1,8 @@
 "use client";
-// Remove the unnecessary import statement for React
+
+import { useEffect, useState } from "react";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
+import storage from "@/firebaseConfig";
 import {
   Navigation,
   Pagination,
@@ -8,13 +11,31 @@ import {
   Autoplay,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
-import "../app/plainstyles.css";
-import slides from "@/constants/slides.js";
 import Image from "next/image";
+import "../app/plainstyles.css";
 
 const LandingPage = () => {
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    const storageRef = ref(storage, "images/slide");
+    listAll(storageRef)
+      .then((res) => {
+        const promises = res.items.map((itemRef) => getDownloadURL(itemRef));
+        Promise.all(promises)
+          .then((urls) => {
+            setSlides(urls);
+          })
+          .catch((error) => {
+            console.error("Error getting download URLs:", error);
+          });
+      })
+      .catch((error) => {
+        console.error("Error listing slides:", error);
+      });
+  }, []);
+
   return (
     <section className="home" id="home">
       <div className="content">
@@ -23,15 +44,17 @@ const LandingPage = () => {
         </h3>
         <h3>
           The Official Sports Club of Future Institute Of Engineering and
-          Managenent{" "}
+          Management{" "}
         </h3>
-        <a href="#" className="btn">
+        {/* <a href="#" className="btn">
           Read More
-        </a>
+        </a> */}
+        {/* <button className="rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+          Read More
+        </button> */}
       </div>
 
       <Swiper
-        // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         spaceBetween={50}
@@ -44,7 +67,12 @@ const LandingPage = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <Image src={slide} alt="image" width={480} height={480} />
+            <Image
+              src={slide}
+              alt={`Image ${index}`}
+              height={1000}
+              width={1000}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

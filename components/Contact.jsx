@@ -1,51 +1,98 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
 import "../app/plainstyles.css";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const timestamp = new Date().toISOString(); // Adding timestamp
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzAmm0IeXsujdjlRppeWyxcytEGe3dMwAAN0GOVApsPtNEvlPKYFp6_R86yPEridGmeHQ/exec",
+        {
+          method: "POST",
+          redirect: "follow",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify({ ...formData, timestamp }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      // const data = await response.json();
+      alert("Form submitted successfully!");
+      // console.log("Success:", data);
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Form submission failed!");
+    }
+  };
+
   return (
     <section class="contact" id="contact">
       <h1 class="heading">
         Contact <span>Us</span>
       </h1>
 
-      <form
-        id="contact_form"
-        action="https://api.web3forms.com/submit"
-        method="POST"
-        class="contact"
-      >
-        <div class="inputBox">
-          <input
-            type="hidden"
-            name="access_key"
-            value="7eb63f77-6e28-4b98-9628-5c37833287b1"
-          />
+      <form id="contact_form" class="contact" onSubmit={handleSubmit}>
+        <div className="inputBox">
           <input
             type="text"
             name="name"
             placeholder="Name"
-            class="contact_inputs"
+            className="contact_inputs"
+            value={formData.name}
+            onChange={handleChange}
             required
           />
           <input
             type="email"
             name="email"
             placeholder="Email ID"
-            class="contact_inputs"
+            className="contact_inputs"
+            value={formData.email}
+            onChange={handleChange}
             required
           />
           <input
             type="number"
             name="phone"
-            placeholder="phone number"
-            class="contact_inputs"
+            placeholder="Phone number"
+            className="contact_inputs"
+            value={formData.phone}
+            onChange={handleChange}
             required
           />
           <input
             type="text"
-            name="cover"
+            name="subject"
             placeholder="Subject"
-            class="contact_inputs"
+            className="contact_inputs"
+            value={formData.subject}
+            onChange={handleChange}
             required
           />
           <textarea
@@ -54,8 +101,16 @@ const Contact = () => {
             id="message"
             cols="30"
             rows=""
+            value={formData.message}
+            onChange={handleChange}
+            required
           ></textarea>
-          <input type="submit" value="Submit" class="btn" />
+          <button
+            type="submit"
+            className="mx-auto rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+          >
+            Submit
+          </button>
         </div>
       </form>
     </section>

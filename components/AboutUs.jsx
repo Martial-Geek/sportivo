@@ -1,8 +1,28 @@
-import React from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 import "../app/plainstyles.css";
+import { ref, getDownloadURL } from "firebase/storage";
+import storage from "@/firebaseConfig";
+
 import Image from "next/image";
 
 const AboutUs = () => {
+  const [imageUrl, setImageUrl] = useState("");
+
+  useEffect(() => {
+    const imageRef = ref(storage, "assets/aboutus.JPG");
+
+    console.log(imageRef);
+
+    getDownloadURL(imageRef)
+      .then((url) => {
+        setImageUrl(url);
+      })
+      .catch((error) => {
+        console.error("Error getting download URL:", error);
+      });
+  }, []);
   return (
     <section class="aboutus" id="aboutus">
       <h1 class="heading">
@@ -10,12 +30,9 @@ const AboutUs = () => {
       </h1>
       <div class="row">
         <div class="image">
-          <Image
-            src={"/assets/aboutUs.jpg"}
-            alt="about-us"
-            width={2000}
-            height={2000}
-          />
+          {imageUrl && (
+            <Image src={imageUrl} alt="about-us" width={2000} height={2000} />
+          )}
         </div>
 
         <div class="content">
@@ -54,9 +71,12 @@ const AboutUs = () => {
             Management.
           </p>
 
-          <a href="#aboutus" class="btn">
+          {/* <a href="#aboutus" class="btn">
             Read More
-          </a>
+          </a> */}
+          <button className="rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+            Read More
+          </button>
         </div>
       </div>
     </section>
