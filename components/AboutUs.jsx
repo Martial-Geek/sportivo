@@ -29,13 +29,13 @@ const AboutUs = () => {
         <span>About</span> Us
       </h1>
       <div class="row">
-        <div class="image">
+        <div class="image bg-slate-800">
           {imageUrl && (
             <Image src={imageUrl} alt="about-us" width={2000} height={2000} />
           )}
         </div>
 
-        <div class="content">
+        <div class="content px-16">
           <h3>A few words .........</h3>
           <p>
             SPORTIVO, the official sports club of Future Institute of

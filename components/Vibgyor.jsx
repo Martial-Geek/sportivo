@@ -28,11 +28,11 @@ const Vibgyor = () => {
         <span>V</span>ibgyor
       </h1>
       <div class="row">
-        <div class="image">
+        <div className="image bg-slate-800">
           <Image src={imageUrl} width={500} height={500} alt="vibgyor" />
         </div>
 
-        <div class="content">
+        <div className="content mx-4 my-1">
           <h3>Play. Bond. Celebrate</h3>
           <p>
             VIBGYOR, a vibrant celebration of sports, lights up our campus each
@@ -52,9 +52,6 @@ const Vibgyor = () => {
             making VIBGYOR a truly diverse and thrilling experience for all
             participants and spectators.
           </p>
-          {/* <a href="#vibgyor" class="btn">
-            Read More
-          </a> */}
           <button className="rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
             Read More
           </button>

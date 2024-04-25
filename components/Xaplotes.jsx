@@ -29,7 +29,7 @@ const Xaplotes = () => {
         <span>X</span>aplotes
       </h1>
       <div class="row">
-        <div class="image">
+        <div class="image bg-slate-800">
           <Image src={imageUrl} width={500} height={500} alt="xap" />
         </div>
 

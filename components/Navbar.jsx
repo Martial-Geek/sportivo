@@ -28,7 +28,7 @@ const Navbar = () => {
         <a href="#vibgyor">Vibgyor</a>
         <a href="#gallery">Gallery</a>
         <a href="#events">Events</a>
-        <a href="#sponsers">Sponsers</a>
+        <a href="#sponsers">Sponsors</a>
         <a href="#contact">Contact Us</a>
       </nav>
 
