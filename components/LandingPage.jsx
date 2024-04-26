@@ -12,6 +12,9 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
 import Image from "next/image";
 import "../app/plainstyles.css";
 
@@ -38,32 +41,23 @@ const LandingPage = () => {
 
   return (
     <section className="home" id="home">
-      <div className="content">
-        <h3>
-          <span>Welcome to Team Sportivo</span>
-        </h3>
-        <h3>
+      <div className="my-40 w-full">
+        <h1 className="text-center font-sans text-[80px] font-semibold text-[#3867d6]">
+          Welcome to Team Sportivo
+        </h1>
+        <h3 className="mt-4 w-auto text-center font-inter text-[50px] leading-[60px] text-white">
           The Official Sports Club of Future Institute Of Engineering and
-          Management{" "}
+          Management
         </h3>
-        {/* <a href="#" className="btn">
-          Read More
-        </a> */}
-        {/* <button className="rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
-          Read More
-        </button> */}
       </div>
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        spaceBetween={50}
+        spaceBetween={55}
         slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>

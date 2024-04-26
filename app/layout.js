@@ -1,6 +1,6 @@
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Montserrat, Roboto } from "next/font/google";
 
 import "./globals.css";
 
@@ -14,6 +14,18 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-spaceGrotesk",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+  variable: "--font-roboto",
 });
 
 export const metadata = {
@@ -37,7 +49,9 @@ export default function RootLayout({ children }) {
     >
       <html lang="en">
         <head></head>
-        <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+        <body
+          className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} ${roboto.variable}`}
+        >
           {children}
         </body>
       </html>

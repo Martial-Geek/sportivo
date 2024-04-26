@@ -6,7 +6,6 @@ import storage from "@/firebaseConfig";
 import "../app/plainstyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShare, faEye } from "@fortawesome/free-solid-svg-icons";
-// import imageInfo from "@/constants/gallery";
 import Image from "next/image";
 
 const Gallery = () => {
@@ -37,7 +36,7 @@ const Gallery = () => {
 
       <div className="box-container">
         {images.map((image, index) => (
-          <div className="box" key={index}>
+          <div className="box bg-slate-800" key={index}>
             <Image
               src={image.src}
               alt={`Image ${index}`}
@@ -46,9 +45,9 @@ const Gallery = () => {
             />
             <h3 className="title">Photos & Events</h3>
             <div className="icons flex justify-around">
-              <FontAwesomeIcon icon={faHeart} className="size-12" />
-              <FontAwesomeIcon icon={faShare} className="size-12" />
-              <FontAwesomeIcon icon={faEye} className="size-12" />
+              <FontAwesomeIcon icon={faHeart} className="size-11" />
+              <FontAwesomeIcon icon={faShare} className="size-11" />
+              <FontAwesomeIcon icon={faEye} className="size-11" />
             </div>
           </div>
         ))}

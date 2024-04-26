@@ -9,6 +9,7 @@ import Image from "next/image";
 
 const AboutUs = () => {
   const [imageUrl, setImageUrl] = useState("");
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     const imageRef = ref(storage, "assets/aboutus.JPG");
@@ -28,29 +29,37 @@ const AboutUs = () => {
       <h1 class="heading">
         <span>About</span> Us
       </h1>
-      <div class="row">
-        <div class="image bg-slate-800">
+      <div class="flex items-center justify-center">
+        <div class="flex size-[500px] items-center justify-center rounded-lg bg-slate-800 p-8">
           {imageUrl && (
-            <Image src={imageUrl} alt="about-us" width={2000} height={2000} />
+            <Image
+              src={imageUrl}
+              alt="about-us"
+              width={2000}
+              height={2000}
+              class="size-[450px] object-cover"
+            />
           )}
         </div>
 
-        <div class="content px-16">
-          <h3>A few words .........</h3>
-          <p>
+        <div class="flex-1 p-20">
+          <h3 className="m-10 mb-4 text-5xl font-bold text-white">
+            A few words .........
+          </h3>
+          <p className="m-10 mb-4 text-2xl text-white">
             SPORTIVO, the official sports club of Future Institute of
             Engineering and Management (FIEM), is a vibrant community united by
             passion and sportsmanship. It’s a platform where every student gets
             a chance to shine.
           </p>
-          <p>
+          <p className="m-10 mb-4 text-2xl text-white">
             Twice a year, SPORTIVO’s spirit comes alive in grand spectacles.
             Xaplotes, our intra-college event, sees students from various
             departments compete in Football, Cricket, Shuttle Cup, Chess, and
             Table Tennis. It’s a platform for talents to emerge, friendships to
             solidify, and the college spirit to soar.
           </p>
-          <p>
+          <p className="m-10 mb-4 text-2xl text-white">
             But SPORTIVO’s spirit doesn’t stop there. Our crown jewel, VIBGYOR,
             is an inter-college extravaganza that bursts with color,
             competition, and camaraderie. It’s not just about Football, Cricket,
@@ -61,7 +70,7 @@ const AboutUs = () => {
             talent from neighboring colleges, celebrating sportsmanship and
             forging lasting bonds across institutions.
           </p>
-          <p>
+          <p id="optional-text2" className="m-10 mb-4 text-2xl text-white">
             FIEM, one of Kolkata’s top private engineering colleges, is
             dedicated to the pursuit of excellence in teaching and providing
             knowledge. It offers unmatched learning experiences for students
@@ -71,10 +80,25 @@ const AboutUs = () => {
             Management.
           </p>
 
-          {/* <a href="#aboutus" class="btn">
-            Read More
-          </a> */}
-          <button className="rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+          <button
+            id="button"
+            className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+            onClick={() => {
+              if (showMore) {
+                document
+                  .getElementById("optional-text2")
+                  .classList.add("hidden");
+                document.getElementById("button").innerHTML = "Read More";
+                setShowMore(false);
+              } else {
+                document
+                  .getElementById("optional-text2")
+                  .classList.remove("hidden");
+                document.getElementById("button").innerHTML = "Read Less";
+                setShowMore(true);
+              }
+            }}
+          >
             Read More
           </button>
         </div>

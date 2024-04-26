@@ -27,14 +27,23 @@ const Vibgyor = () => {
       <h1 class="heading">
         <span>V</span>ibgyor
       </h1>
-      <div class="row">
-        <div className="image bg-slate-800">
-          <Image src={imageUrl} width={500} height={500} alt="vibgyor" />
+
+      <div class="flex items-center justify-center">
+        <div class="flex size-[400px] items-center justify-center rounded-lg bg-slate-800 p-8">
+          <Image
+            src={imageUrl}
+            class="object-cover"
+            alt="vibgyor"
+            width={500}
+            height={500}
+          />
         </div>
 
-        <div className="content mx-4 my-1">
-          <h3>Play. Bond. Celebrate</h3>
-          <p>
+        <div class="flex-1 p-20">
+          <h3 class="m-10 mb-4 text-5xl font-bold text-white">
+            Play. Bond. Celebrate
+          </h3>
+          <p class="m-10 mb-4 text-2xl text-white">
             VIBGYOR, a vibrant celebration of sports, lights up our campus each
             year, attracting the largest student gathering in the City of Joy.
             Students from colleges not just in Kolkata, but from far and wide,
@@ -45,14 +54,14 @@ const Vibgyor = () => {
             and sparking unforgettable memories, all under the banner of
             sportsmanship and shared passion.
           </p>
-          <p>
+          <p class="m-10 mb-4 text-2xl text-white">
             The events that make up the VIBGYOR sports fest are Football,
             Cricket, Badminton, Chess, Table Tennis, Volleyball, and Kabaddi.
             Each of these events brings its own unique excitement to the fest,
             making VIBGYOR a truly diverse and thrilling experience for all
             participants and spectators.
           </p>
-          <button className="rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+          <button class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
             Read More
           </button>
         </div>

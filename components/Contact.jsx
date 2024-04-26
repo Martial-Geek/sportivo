@@ -107,7 +107,7 @@ const Contact = () => {
           ></textarea>
           <button
             type="submit"
-            className="mx-auto rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+            className="mx-auto my-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
           >
             Submit
           </button>

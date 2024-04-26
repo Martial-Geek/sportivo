@@ -1,4 +1,11 @@
-import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRight,
+  faPhone,
+  faEnvelope,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -7,52 +14,52 @@ const Footer = () => {
         <div class="box">
           <h3> quick links</h3>
           <a href="#home">
-            <i class="fas fa-arrow-right"></i>home
+            <FontAwesomeIcon icon={faArrowRight} /> Home
           </a>
           <a href="#about">
-            <i class="fas fa-arrow-right"></i>aboutus
+            <FontAwesomeIcon icon={faArrowRight} /> Aboutus
           </a>
           <a href="#xaplotes">
-            <i class="fas fa-arrow-right"></i>xaplotes
+            <FontAwesomeIcon icon={faArrowRight} /> Xaplotes
           </a>
           <a href="#vibgyor">
-            <i class="fas fa-arrow-right"></i>vibgyor
+            <FontAwesomeIcon icon={faArrowRight} /> Vibgyor
           </a>
           <a href="#gallery">
-            <i class="fas fa-arrow-right"></i>gallery
+            <FontAwesomeIcon icon={faArrowRight} /> Gallery
           </a>
           <a href="#contact">
-            <i class="fas fa-arrow-right"></i>contact
+            <FontAwesomeIcon icon={faArrowRight} /> Contact
           </a>
         </div>
 
         <div class="box">
           <h3> Contact Info</h3>
           <a href="#">
-            <i class="fas fa-phone"></i>+91 9836489056
+            <FontAwesomeIcon icon={faPhone} /> +91 9836489056
           </a>
           <a href="#">
-            <i class="fas fa-phone"></i>+91 6297538477
+            <FontAwesomeIcon icon={faPhone} /> +91 6297538477
           </a>
           <a href="#">
-            <i class="fas fa-phone"></i>+91 8961677543
+            <FontAwesomeIcon icon={faPhone} /> +91 8961677543
           </a>
           <a href="">
-            <i class="fas fa-envelope"></i>sportivo@teamfuture.in
+            <FontAwesomeIcon icon={faEnvelope} /> sportivo@teamfuture.in
           </a>
           <a href="https://maps.app.goo.gl/iJSvGN1hJF1qUFLU6">
-            <i class="fas fa-map-marker-alt"></i>CCV8+85M, Sonarpur Station Rd,
-            Mission Pally, Narendrapur, Kolkata, West Bengal 700150
+            <FontAwesomeIcon icon={faMapMarkerAlt} /> CCV8+85M, Sonarpur Station
+            Rd, Mission Pally, Narendrapur, Kolkata, West Bengal 700150
           </a>
         </div>
 
         <div class="box">
           <h3> Social Media</h3>
           <a href="https://www.facebook.com/FIEMsportivo/">
-            <i class="fab fa-facebook"></i>facebook
+            <FontAwesomeIcon icon={faFacebook} /> facebook
           </a>
           <a href="https://www.instagram.com/sportivoteamfuture?igsh=OWs1N3Bhc3JjN3hi">
-            <i class="fab fa-instagram"></i>instagram
+            <FontAwesomeIcon icon={faInstagram} /> instagram
           </a>
         </div>
       </div>
