@@ -20,16 +20,16 @@ const Navbar = () => {
       </div>
 
       <nav class="navbar">
-        <a href="#home" class="active">
+        <a href="/#home" class="active">
           Home
         </a>
-        <a href="#aboutus">About Us</a>
-        <a href="#xaplotes">Xaplotes</a>
-        <a href="#vibgyor">Vibgyor</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#events">Events</a>
-        <a href="#sponsers">Sponsors</a>
-        <a href="#contact">Contact Us</a>
+        <a href="/#aboutus">About Us</a>
+        <a href="/#xaplotes">Xaplotes</a>
+        <a href="/#vibgyor">Vibgyor</a>
+        <a href="/#gallery">Gallery</a>
+        <a href="/#events">Events</a>
+        <a href="/#sponsers">Sponsors</a>
+        <a href="/#contact">Contact Us</a>
       </nav>
 
       <Image

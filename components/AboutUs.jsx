@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const AboutUs = () => {
   const [imageUrl, setImageUrl] = useState("");
-  const [showMore, setShowMore] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   useEffect(() => {
     const imageRef = ref(storage, "assets/aboutus.JPG");
@@ -84,22 +84,22 @@ const AboutUs = () => {
             id="button"
             className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
             onClick={() => {
-              if (showMore) {
+              if (isExpanded) {
                 document
                   .getElementById("optional-text2")
                   .classList.add("hidden");
                 document.getElementById("button").innerHTML = "Read More";
-                setShowMore(false);
+                setIsExpanded(false);
               } else {
                 document
                   .getElementById("optional-text2")
                   .classList.remove("hidden");
                 document.getElementById("button").innerHTML = "Read Less";
-                setShowMore(true);
+                setIsExpanded(true);
               }
             }}
           >
-            Read More
+            Read Less
           </button>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import AboutUs from "@/components/AboutUs";
 import Gallery from "@/components/Gallery";
 import LandingPage from "@/components/LandingPage";
-import Navbar from "@/components/Navbar";
 import Vibgyor from "@/components/Vibgyor";
 import Xaplotes from "@/components/Xaplotes";
 import Events from "@/components/Events";
@@ -13,7 +12,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div>
-      <Navbar />
       <LandingPage />
       <AboutUs />
       <Xaplotes />

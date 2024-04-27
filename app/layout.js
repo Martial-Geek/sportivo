@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Space_Grotesk, Montserrat, Roboto } from "next/font/google";
 
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,8 +51,9 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <head></head>
         <body
-          className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} ${roboto.variable}`}
+          className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} ${roboto.variable} px-0`}
         >
+          <Navbar />
           {children}
         </body>
       </html>
