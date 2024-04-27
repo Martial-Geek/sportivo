@@ -29,15 +29,15 @@ const AboutUs = () => {
       <h1 class="heading">
         <span>About</span> Us
       </h1>
-      <div class="flex items-center justify-center">
-        <div class="flex size-[500px] items-center justify-center rounded-lg bg-slate-800 p-8">
+      <div class="flex flex-col items-center justify-center sm:flex-row">
+        <div class="flex size-[350px] items-center justify-center rounded-lg bg-slate-800 p-8 sm:mx-auto sm:size-[500px]">
           {imageUrl && (
             <Image
               src={imageUrl}
               alt="about-us"
               width={2000}
               height={2000}
-              class="size-[450px] object-cover"
+              class="mx-16 size-[300px] object-cover sm:mx-0 sm:size-[450px]"
             />
           )}
         </div>

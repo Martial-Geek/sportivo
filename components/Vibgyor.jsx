@@ -28,7 +28,7 @@ const Vibgyor = () => {
         <span>V</span>ibgyor
       </h1>
 
-      <div class="flex items-center justify-center">
+      <div class="flex flex-col items-center justify-center sm:flex-row">
         <div class="flex size-[400px] items-center justify-center rounded-lg bg-slate-800 p-8">
           <Image
             src={imageUrl}

@@ -144,7 +144,7 @@ const Events = () => {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           {events.map((event, index) => (
             <div
-              className="flex flex-col gap-12 rounded-xl bg-[#1e293b] p-8"
+              className="mx-24 flex flex-col gap-12 rounded-xl bg-[#1e293b] p-8 sm:mx-0"
               key={index}
             >
               <h2 className="font-montserrat mx-auto text-4xl font-semibold text-white">

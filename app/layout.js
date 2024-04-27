@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <head></head>
         <body
-          className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} ${roboto.variable} px-0`}
+          className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} ${roboto.variable}`}
         >
           <Navbar />
           {children}

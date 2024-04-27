@@ -42,10 +42,10 @@ const LandingPage = () => {
   return (
     <section className="home" id="home">
       <div className="my-40 w-full">
-        <h1 className="text-center font-sans text-[80px] font-semibold text-[#3867d6]">
+        <h1 className="text-center font-sans text-[40px] font-semibold text-[#3867d6] sm:text-[80px]">
           Welcome to Team Sportivo
         </h1>
-        <h3 className="mt-4 w-auto text-center font-inter text-[50px] leading-[60px] text-white">
+        <h3 className="mt-4 w-auto text-center font-inter text-[20px] leading-[60px] text-white sm:text-[50px]">
           The Official Sports Club of Future Institute Of Engineering and
           Management
         </h3>
@@ -58,6 +58,16 @@ const LandingPage = () => {
         slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
+        breakpoints={{
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 3,
+          },
+          // when window width is < 768px
+          0: {
+            slidesPerView: 1,
+          },
+        }}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -66,6 +76,7 @@ const LandingPage = () => {
               alt={`Image ${index}`}
               height={1000}
               width={1000}
+              className="mx-auto size-[300px] rounded-xl shadow-xl sm:size-[350px]"
             />
           </SwiperSlide>
         ))}

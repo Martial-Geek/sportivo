@@ -53,7 +53,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <div class="box">
+        <div class="box mx:auto sm:mx-0">
           <h3> Social Media</h3>
           <a href="https://www.facebook.com/FIEMsportivo/">
             <FontAwesomeIcon icon={faFacebook} /> facebook
