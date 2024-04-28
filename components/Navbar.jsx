@@ -23,7 +23,7 @@ const Navbar = () => {
             src={"/images/sportivo.gif"}
             width={50}
             height={50}
-            className="size-12 rounded-full"
+            className="size-18 rounded-full"
             alt="logo"
           />
 
@@ -50,7 +50,7 @@ const Navbar = () => {
           width={50}
           height={50}
           alt="logo"
-          className="size-12"
+          className="size-18"
         />
 
         {/* Mobile Menu Bars */}

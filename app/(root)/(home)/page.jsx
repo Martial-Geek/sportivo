@@ -8,10 +8,12 @@ import { UserButton } from "@clerk/nextjs";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import EventsModal from "@/components/EventsModal";
 
 export default function Home() {
   return (
     <div>
+      <EventsModal />
       <LandingPage />
       <AboutUs />
       <Xaplotes />

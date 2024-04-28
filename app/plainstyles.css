@@ -390,7 +390,7 @@ events */
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   #menu-bars {
     display: initial;
   }

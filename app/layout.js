@@ -1,7 +1,6 @@
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Space_Grotesk, Montserrat, Roboto } from "next/font/google";
-import Sidebar from "@/components/Sidebar";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -31,11 +30,11 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "DevFlow",
+  title: "Sportivo",
   description:
-    "A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more.",
+    "The official sports club of Future Institute Of Engineering and Management",
   icons: {
-    icon: "/assets/images/site-logo.svg",
+    icon: "/assets/images/logo4.png",
   },
 };
 
