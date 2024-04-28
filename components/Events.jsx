@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import storage from "@/firebaseConfig";
 import Link from "next/link"; // Import Link from Next.js
 import "../app/plainstyles.css";
@@ -78,18 +79,25 @@ const Events = () => {
                 className="mx-auto h-[20vh] w-[50vw] rounded-[3rem] sm:h-[25vh] sm:w-[15vw]"
               />
 
-              <Link
-                href={`/event-reg/${event.id}`}
-                passHref
-                className="mx-auto"
-              >
-                <button
-                  id={`gullycricketregisterBtn${index + 1}`}
-                  className="font-roboto mx-auto w-fit rounded-xl bg-[#33465d] px-8 py-4 text-3xl font-semibold text-white hover:bg-blue-700"
+              <SignedOut>
+                <SignInButton className="font-roboto mx-auto w-fit rounded-xl bg-[#33465d] px-8 py-4 text-3xl font-semibold text-white hover:bg-blue-700">
+                  Sign In to Register
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <Link
+                  href={`/event-reg/${event.id}`}
+                  passHref
+                  className="mx-auto"
                 >
-                  Register
-                </button>
-              </Link>
+                  <button
+                    id={`gullycricketregisterBtn${index + 1}`}
+                    className="font-roboto mx-auto w-fit rounded-xl bg-[#33465d] px-8 py-4 text-3xl font-semibold text-white hover:bg-blue-700"
+                  >
+                    Register
+                  </button>
+                </Link>
+              </SignedIn>
             </div>
           ))}
         </div>

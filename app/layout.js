@@ -1,5 +1,6 @@
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark, neobrutalism } from "@clerk/themes";
 import { Inter, Space_Grotesk, Montserrat, Roboto } from "next/font/google";
 
 import "./globals.css";
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider
       appearance={{
+        baseTheme: [dark, neobrutalism],
         elements: {
           formButtonPrimary: "primary-gradient",
           footerActionLink: "primary-text-gradient hover:text-primary-500",
