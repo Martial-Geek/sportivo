@@ -9,7 +9,9 @@ import Image from "next/image";
 
 const AboutUs = () => {
   const [imageUrl, setImageUrl] = useState("");
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileExpanded, setIsMobileExpanded] = useState(false);
+  const [isDesktopExpanded, setIsDesktopExpanded] = useState(false);
 
   useEffect(() => {
     const imageRef = ref(storage, "assets/aboutus.JPG");
@@ -23,6 +25,18 @@ const AboutUs = () => {
       .catch((error) => {
         console.error("Error getting download URL:", error);
       });
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767); // Adjust the threshold as needed
+    };
+
+    handleResize(); // Check on component mount
+
+    window.addEventListener("resize", handleResize); // Listen for window resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up
+    };
   }, []);
   return (
     <section class="aboutus" id="aboutus">
@@ -59,48 +73,73 @@ const AboutUs = () => {
             Table Tennis. It’s a platform for talents to emerge, friendships to
             solidify, and the college spirit to soar.
           </p>
-          <p className="m-10 mb-4 text-2xl text-white">
-            But SPORTIVO’s spirit doesn’t stop there. Our crown jewel, VIBGYOR,
-            is an inter-college extravaganza that bursts with color,
-            competition, and camaraderie. It’s not just about Football, Cricket,
-            Chess, Table Tennis, Badminton, and Tug-O-War. VIBGYOR offers a
-            spectrum of sporting and recreational activities, from Volleyball to
-            Carrom, Dart Throwing to countless other engaging games. It’s a
-            stage where FIEM opens its doors and welcomes the best athletic
-            talent from neighboring colleges, celebrating sportsmanship and
-            forging lasting bonds across institutions.
-          </p>
-          <p id="optional-text2" className="m-10 mb-4 text-2xl text-white">
-            FIEM, one of Kolkata’s top private engineering colleges, is
-            dedicated to the pursuit of excellence in teaching and providing
-            knowledge. It offers unmatched learning experiences for students
-            across a broad spectrum of academics. FIEM aims to create highly
-            trained technical manpower in different disciplines of Engineering
-            and Technology, and professional managers in the fields of General
-            Management.
-          </p>
+          {isMobile && isMobileExpanded && (
+            <p className="m-10 mb-4 text-2xl text-white">
+              But SPORTIVO’s spirit doesn’t stop there. Our crown jewel,
+              VIBGYOR, is an inter-college extravaganza that bursts with color,
+              competition, and camaraderie. It’s not just about Football,
+              Cricket, Chess, Table Tennis, Badminton, and Tug-O-War. VIBGYOR
+              offers a spectrum of sporting and recreational activities, from
+              Volleyball to Carrom, Dart Throwing to countless other engaging
+              games. It’s a stage where FIEM opens its doors and welcomes the
+              best athletic talent from neighboring colleges, celebrating
+              sportsmanship and forging lasting bonds across institutions.
+            </p>
+          )}
+          {isMobile && isMobileExpanded && (
+            <p id="optional-text2" className="m-10 mb-4 text-2xl text-white">
+              FIEM, one of Kolkata’s top private engineering colleges, is
+              dedicated to the pursuit of excellence in teaching and providing
+              knowledge. It offers unmatched learning experiences for students
+              across a broad spectrum of academics. FIEM aims to create highly
+              trained technical manpower in different disciplines of Engineering
+              and Technology, and professional managers in the fields of General
+              Management.
+            </p>
+          )}
+          {!isMobile && (
+            <p className="m-10 mb-4 text-2xl text-white">
+              But SPORTIVO’s spirit doesn’t stop there. Our crown jewel,
+              VIBGYOR, is an inter-college extravaganza that bursts with color,
+              competition, and camaraderie. It’s not just about Football,
+              Cricket, Chess, Table Tennis, Badminton, and Tug-O-War. VIBGYOR
+              offers a spectrum of sporting and recreational activities, from
+              Volleyball to Carrom, Dart Throwing to countless other engaging
+              games. It’s a stage where FIEM opens its doors and welcomes the
+              best athletic talent from neighboring colleges, celebrating
+              sportsmanship and forging lasting bonds across institutions.
+            </p>
+          )}
+          {isDesktopExpanded && !isMobile && (
+            <p id="optional-text2" className="m-10 mb-4 text-2xl text-white">
+              FIEM, one of Kolkata’s top private engineering colleges, is
+              dedicated to the pursuit of excellence in teaching and providing
+              knowledge. It offers unmatched learning experiences for students
+              across a broad spectrum of academics. FIEM aims to create highly
+              trained technical manpower in different disciplines of Engineering
+              and Technology, and professional managers in the fields of General
+              Management.
+            </p>
+          )}
 
-          <button
-            id="button"
-            className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
-            onClick={() => {
-              if (isExpanded) {
-                document
-                  .getElementById("optional-text2")
-                  .classList.add("hidden");
-                document.getElementById("button").innerHTML = "Read More";
-                setIsExpanded(false);
-              } else {
-                document
-                  .getElementById("optional-text2")
-                  .classList.remove("hidden");
-                document.getElementById("button").innerHTML = "Read Less";
-                setIsExpanded(true);
-              }
-            }}
-          >
-            Read Less
-          </button>
+          {isMobile && (
+            <button
+              id="mobile-button"
+              className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+              onClick={() => setIsMobileExpanded(!isMobileExpanded)}
+            >
+              {isMobileExpanded ? "Read Less" : "Read More"}
+            </button>
+          )}
+          {!isMobile && (
+            <button
+              id="desktop-button"
+              className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+              onClick={() => setIsDesktopExpanded(!isDesktopExpanded)}
+            >
+              {isDesktopExpanded ? "Read Less" : "Read More"}
+            </button>
+          )}
         </div>
       </div>
     </section>

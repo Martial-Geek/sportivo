@@ -5,9 +5,12 @@ import "../app/plainstyles.css";
 import { ref, getDownloadURL } from "firebase/storage";
 import storage from "@/firebaseConfig";
 import Image from "next/image";
+import Link from "next/link";
 
 const Xaplotes = () => {
   const [imageUrl, setImageUrl] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileExpanded, setIsMobileExpanded] = useState(false);
 
   useEffect(() => {
     const imageRef = ref(storage, "assets/xap.gif");
@@ -21,6 +24,18 @@ const Xaplotes = () => {
       .catch((error) => {
         console.error("Error getting download URL:", error);
       });
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767); // Adjust the threshold as needed
+    };
+
+    handleResize(); // Check on component mount
+
+    window.addEventListener("resize", handleResize); // Listen for window resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up
+    };
   }, []);
 
   return (
@@ -52,16 +67,43 @@ const Xaplotes = () => {
             Xaplotes transforms the ordinary into an unforgettable spectacle of
             sportsmanship and camaraderie.
           </p>
-          <p class="m-10 mb-4 text-2xl text-white">
-            The events under the banner of Xaplotes include Xaplotes Football,
-            Xaplotes Cricket, Xaplotes Shuttle Cup, and Xaplotes Table Tennis.
-            Each of these events brings its own unique flavor to the
-            competition, making Xaplotes a diverse and exciting experience for
-            all participants and spectators alike.
-          </p>
-          <button class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
-            Read More
-          </button>
+          {/* Default View on Desktop  */}
+          {!isMobile && (
+            <p class="m-10 mb-4 text-2xl text-white">
+              The events under the banner of Xaplotes include Xaplotes Football,
+              Xaplotes Cricket, Xaplotes Shuttle Cup, and Xaplotes Table Tennis.
+              Each of these events brings its own unique flavor to the
+              competition, making Xaplotes a diverse and exciting experience for
+              all participants and spectators alike.
+            </p>
+          )}
+          {/* Only Visible on mobile when expanded  */}
+          {isMobile && isMobileExpanded && (
+            <p class="m-10 mb-4 text-2xl text-white">
+              The events under the banner of Xaplotes include Xaplotes Football,
+              Xaplotes Cricket, Xaplotes Shuttle Cup, and Xaplotes Table Tennis.
+              Each of these events brings its own unique flavor to the
+              competition, making Xaplotes a diverse and exciting experience for
+              all participants and spectators alike.
+            </p>
+          )}
+          {/* Read More/Less Button for mobile  */}
+          {isMobile && (
+            <button
+              class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+              onClick={() => setIsMobileExpanded(!isMobileExpanded)}
+            >
+              {isMobileExpanded ? "Read Less" : "Read More"}
+            </button>
+          )}
+          {/* Default Button for Desktop  */}
+          {!isMobile && (
+            <Link href="/#events">
+              <button class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+                Check Out Events!
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </section>

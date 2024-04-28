@@ -5,9 +5,12 @@ import "../app/plainstyles.css";
 import { ref, getDownloadURL } from "firebase/storage";
 import storage from "@/firebaseConfig";
 import Image from "next/image";
+import Link from "next/link";
 
 const Vibgyor = () => {
   const [imageUrl, setImageUrl] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileExpanded, setIsMobileExpanded] = useState(false);
 
   useEffect(() => {
     const imageRef = ref(storage, "assets/vib.gif");
@@ -21,6 +24,18 @@ const Vibgyor = () => {
       .catch((error) => {
         console.error("Error getting download URL:", error);
       });
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767); // Adjust the threshold as needed
+    };
+
+    handleResize(); // Check on component mount
+
+    window.addEventListener("resize", handleResize); // Listen for window resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up
+    };
   }, []);
   return (
     <section class="vibgyor" id="vibgyor">
@@ -54,16 +69,43 @@ const Vibgyor = () => {
             and sparking unforgettable memories, all under the banner of
             sportsmanship and shared passion.
           </p>
-          <p class="m-10 mb-4 text-2xl text-white">
-            The events that make up the VIBGYOR sports fest are Football,
-            Cricket, Badminton, Chess, Table Tennis, Volleyball, and Kabaddi.
-            Each of these events brings its own unique excitement to the fest,
-            making VIBGYOR a truly diverse and thrilling experience for all
-            participants and spectators.
-          </p>
-          <button class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
-            Read More
-          </button>
+          {/* Default visible on desktop  */}
+          {!isMobile && (
+            <p class="m-10 mb-4 text-2xl text-white">
+              The events that make up the VIBGYOR sports fest are Football,
+              Cricket, Badminton, Chess, Table Tennis, Volleyball, and Kabaddi.
+              Each of these events brings its own unique excitement to the fest,
+              making VIBGYOR a truly diverse and thrilling experience for all
+              participants and spectators.
+            </p>
+          )}
+          {/* Visible on mobile only when expanded */}
+          {isMobile && isMobileExpanded && (
+            <p class="m-10 mb-4 text-2xl text-white">
+              The events that make up the VIBGYOR sports fest are Football,
+              Cricket, Badminton, Chess, Table Tennis, Volleyball, and Kabaddi.
+              Each of these events brings its own unique excitement to the fest,
+              making VIBGYOR a truly diverse and thrilling experience for all
+              participants and spectators.
+            </p>
+          )}
+          {/* Read More/Less Button for mobile  */}
+          {isMobile && (
+            <button
+              class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+              onClick={() => setIsMobileExpanded(!isMobileExpanded)}
+            >
+              {isMobileExpanded ? "Read Less" : "Read More"}
+            </button>
+          )}
+          {/* Default Button for Desktop  */}
+          {!isMobile && (
+            <Link href="/#events">
+              <button class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+                Check Out Events!
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </section>
