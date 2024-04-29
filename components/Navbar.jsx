@@ -23,7 +23,7 @@ const Navbar = () => {
             src={"/images/sportivo.gif"}
             width={50}
             height={50}
-            className="size-18 rounded-full"
+            className="size-14 rounded-full sm:size-20"
             alt="logo"
           />
 
@@ -50,16 +50,19 @@ const Navbar = () => {
           width={50}
           height={50}
           alt="logo"
-          className="size-18"
+          className="size-14 sm:size-20"
         />
 
         {/* Mobile Menu Bars */}
         <div
           id="menu-bars"
-          className="menu-bars cursor-pointer md:hidden"
+          className="menu-bars cursor-pointer sm:hidden"
           onClick={() => setShowMobileMenu(!showMobileMenu)}
         >
-          <FontAwesomeIcon icon={faBars} className="text-3xl text-white" />
+          <FontAwesomeIcon
+            icon={faBars}
+            className="mr-8 flex text-5xl text-white sm:hidden"
+          />
         </div>
       </header>
       {showMobileMenu && <Sidebar closeSidebar={closeSidebar} />}

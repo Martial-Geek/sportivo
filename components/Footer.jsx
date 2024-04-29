@@ -15,7 +15,7 @@ const Footer = () => {
         id="container"
       >
         <div
-          className="flex flex-col gap-6 border-x-0 border-b border-t-0 border-solid border-[#222] pb-8 text-center xs:text-left sm:border-0"
+          className="flex flex-col gap-6 border-x-0 border-b border-t-0 border-solid border-[#222] pb-8 text-left xs:text-left sm:border-0 sm:text-center"
           id="quick-links"
         >
           <h3 className="font-sans text-4xl font-semibold"> quick links</h3>
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
 
         <div
-          className="flex flex-col gap-6 border-x-0 border-b border-t-0 border-solid border-[#222] pb-8 text-center xs:text-left sm:border-0"
+          className="flex flex-col gap-6 border-x-0 border-b border-t-0 border-solid border-[#222] pb-8 text-left xs:text-left sm:border-0 sm:text-center"
           id="contact-info"
         >
           <h3 className="font-sans text-4xl font-semibold"> Contact Info</h3>
@@ -65,7 +65,7 @@ const Footer = () => {
           </a>
         </div>
         <div
-          className="flex flex-col gap-6 text-center xs:text-left"
+          className="flex flex-col gap-6 text-left xs:text-left sm:text-center"
           id="social-media"
         >
           <h3 className="font-sans text-4xl font-semibold"> Social Media</h3>

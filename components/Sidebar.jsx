@@ -7,7 +7,7 @@ import { sidebarLinks } from "@/constants/sidebarlinks";
 
 const Sidebar = ({ closeSidebar }) => {
   return (
-    <section className="fixed left-0 top-[77px] z-50 h-screen w-2/5 border-x-0 border-t border-solid border-white bg-[#333]">
+    <section className="fixed right-0 top-[55px] z-50 h-screen w-1/2 border-x-0 border-t border-solid border-white bg-[#333] sm:hidden">
       <div className="flex flex-col gap-6 p-6">
         {sidebarLinks.map((item) => {
           return (
@@ -42,9 +42,19 @@ const Sidebar = ({ closeSidebar }) => {
       </SignedOut>
       <SignedIn>
         <div className="flex justify-around gap-4 p-4">
-          <p className="text-4xl font-semibold text-white">Profile</p>
+          <p className="my-auto text-4xl font-semibold text-white">Profile</p>
           {/* Increase the size of the user profile icon  */}
-          <UserButton />
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonAvatarBox: {
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                },
+              },
+            }}
+          />
         </div>
       </SignedIn>
     </section>
