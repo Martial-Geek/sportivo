@@ -71,7 +71,7 @@ const AdvertisementModal = () => {
                         width={200}
                         height={200}
                         alt="Advertisement"
-                        className="my-5 size-[400px]"
+                        className="my-5 h-[240px] w-[280px] sm:size-[400px]"
                       />
                     </div>
                   </div>

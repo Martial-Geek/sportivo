@@ -44,7 +44,7 @@ const Xaplotes = () => {
         <span>X</span>aplotes
       </h1>
       <div className="flex flex-col items-center justify-center sm:flex-row">
-        <div className="flex size-[400px] items-center justify-center rounded-lg bg-slate-800 p-8">
+        <div className="flex size-[350px] items-center justify-center rounded-lg bg-slate-800 p-8">
           <Image
             src={imageUrl}
             className="object-cover"

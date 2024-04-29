@@ -1,14 +1,13 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { SignedOut } from "@clerk/nextjs";
+import { SignedOut, UserButton, SignedIn } from "@clerk/nextjs";
 import { sidebarLinks } from "@/constants/sidebarlinks";
 
 const Sidebar = ({ closeSidebar }) => {
   return (
-    <section className="fixed left-0 top-0 z-50 h-screen w-2/5 bg-[#333]">
+    <section className="fixed left-0 top-[77px] z-50 h-screen w-2/5 border-x-0 border-t border-solid border-white bg-[#333]">
       <div className="flex flex-col gap-6 p-6">
         {sidebarLinks.map((item) => {
           return (
@@ -16,7 +15,7 @@ const Sidebar = ({ closeSidebar }) => {
               href={item.route}
               key={item.label}
               onClick={closeSidebar}
-              className="flex items-center justify-start gap-4 bg-transparent p-4"
+              className="flex items-center justify-start gap-4 border-x-0 border-b border-t-0 border-solid border-[#222] bg-transparent p-4 hover:rounded-xl hover:bg-slate-700"
             >
               <p className="base-bold base-medium text-white">{item.label}</p>
             </Link>
@@ -26,33 +25,28 @@ const Sidebar = ({ closeSidebar }) => {
       <SignedOut>
         <div className="flex flex-col gap-3 p-6">
           <Link href="/sign-in" onClick={closeSidebar}>
-            <button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
-              <Image
-                src="/assets/icons/account.svg"
-                alt="login"
-                width={20}
-                height={20}
-                className="invert-colors lg:hidden"
-              />
-              <span className="primary-text-gradient max-lg:hidden">
+            <button className="min-h-[41px] w-full rounded-lg bg-fuchsia-300 px-4 py-3 shadow-none">
+              <span className="text-3xl font-semibold text-slate-900">
                 Log In
               </span>
             </button>
           </Link>
           <Link href="/sign-up" onClick={closeSidebar}>
-            <button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
-              <Image
-                src="/assets/icons/sign-up.svg"
-                alt="sign up"
-                width={20}
-                height={20}
-                className="invert-colors lg:hidden"
-              />
-              <span className="max-lg:hidden">Sign Up</span>
+            <button className="min-h-[41px] w-full rounded-lg bg-fuchsia-300 px-4 py-3 shadow-none">
+              <span className="text-3xl font-semibold text-slate-900">
+                Sign Up
+              </span>
             </button>
           </Link>
         </div>
       </SignedOut>
+      <SignedIn>
+        <div className="flex justify-around gap-4 p-4">
+          <p className="text-4xl font-semibold text-white">Profile</p>
+          {/* Increase the size of the user profile icon  */}
+          <UserButton />
+        </div>
+      </SignedIn>
     </section>
   );
 };

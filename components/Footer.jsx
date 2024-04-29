@@ -10,9 +10,15 @@ import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
   return (
     <section className="footer">
-      <div className="box-container">
-        <div className="box">
-          <h3> quick links</h3>
+      <div
+        className="flex flex-col gap-10 text-3xl text-white sm:flex-row sm:justify-around"
+        id="container"
+      >
+        <div
+          className="flex flex-col gap-6 border-x-0 border-b border-t-0 border-solid border-[#222] pb-8 text-center xs:text-left sm:border-0"
+          id="quick-links"
+        >
+          <h3 className="font-sans text-4xl font-semibold"> quick links</h3>
           <a href="#home">
             <FontAwesomeIcon icon={faArrowRight} /> Home
           </a>
@@ -33,8 +39,11 @@ const Footer = () => {
           </a>
         </div>
 
-        <div className="box">
-          <h3> Contact Info</h3>
+        <div
+          className="flex flex-col gap-6 border-x-0 border-b border-t-0 border-solid border-[#222] pb-8 text-center xs:text-left sm:border-0"
+          id="contact-info"
+        >
+          <h3 className="font-sans text-4xl font-semibold"> Contact Info</h3>
           <a href="#">
             <FontAwesomeIcon icon={faPhone} /> +91 9836489056
           </a>
@@ -47,14 +56,19 @@ const Footer = () => {
           <a href="">
             <FontAwesomeIcon icon={faEnvelope} /> sportivo@teamfuture.in
           </a>
-          <a href="https://maps.app.goo.gl/iJSvGN1hJF1qUFLU6">
+          <a
+            href="https://maps.app.goo.gl/iJSvGN1hJF1qUFLU6"
+            className="w-full sm:w-[40rem]"
+          >
             <FontAwesomeIcon icon={faMapMarkerAlt} /> CCV8+85M, Sonarpur Station
             Rd, Mission Pally, Narendrapur, Kolkata, West Bengal 700150
           </a>
         </div>
-
-        <div className="box mx:auto sm:mx-0">
-          <h3> Social Media</h3>
+        <div
+          className="flex flex-col gap-6 text-center xs:text-left"
+          id="social-media"
+        >
+          <h3 className="font-sans text-4xl font-semibold"> Social Media</h3>
           <a href="https://www.facebook.com/FIEMsportivo/">
             <FontAwesomeIcon icon={faFacebook} /> facebook
           </a>
