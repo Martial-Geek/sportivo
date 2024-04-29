@@ -39,24 +39,24 @@ const AboutUs = () => {
     };
   }, []);
   return (
-    <section class="aboutus" id="aboutus">
-      <h1 class="heading">
+    <section className="aboutus" id="aboutus">
+      <h1 className="heading">
         <span>About</span> Us
       </h1>
-      <div class="flex flex-col items-center justify-center sm:flex-row">
-        <div class="flex size-[350px] items-center justify-center rounded-lg bg-slate-800 p-8 sm:mx-auto sm:size-[500px]">
+      <div className="flex flex-col items-center justify-center sm:flex-row">
+        <div className="flex size-[350px] items-center justify-center rounded-lg bg-slate-800 p-8 sm:mx-auto sm:size-[500px]">
           {imageUrl && (
             <Image
               src={imageUrl}
               alt="about-us"
               width={2000}
               height={2000}
-              class="mx-16 size-[300px] object-cover sm:mx-0 sm:size-[450px]"
+              className="mx-16 size-[300px] object-cover sm:mx-0 sm:size-[450px]"
             />
           )}
         </div>
 
-        <div class="flex-1 p-20">
+        <div className="flex-1 p-20">
           <h3 className="m-10 mb-4 text-5xl font-bold text-white">
             A few words .........
           </h3>

@@ -39,26 +39,26 @@ const Xaplotes = () => {
   }, []);
 
   return (
-    <section class="xaplotes" id="xaplotes">
-      <h1 class="heading">
+    <section className="xaplotes" id="xaplotes">
+      <h1 className="heading">
         <span>X</span>aplotes
       </h1>
-      <div class="flex flex-col items-center justify-center sm:flex-row">
-        <div class="flex size-[400px] items-center justify-center rounded-lg bg-slate-800 p-8">
+      <div className="flex flex-col items-center justify-center sm:flex-row">
+        <div className="flex size-[400px] items-center justify-center rounded-lg bg-slate-800 p-8">
           <Image
             src={imageUrl}
-            class="object-cover"
+            className="object-cover"
             alt="xap"
             width={450}
             height={450}
           />
         </div>
 
-        <div class="flex-1 p-20">
-          <h3 class="m-10 mb-4 text-5xl font-bold text-white">
+        <div className="flex-1 p-20">
+          <h3 className="m-10 mb-4 text-5xl font-bold text-white">
             Where Sparks Fly and Friendships Soar!
           </h3>
-          <p class="m-10 mb-4 text-2xl text-white">
+          <p className="m-10 mb-4 text-2xl text-white">
             Xaplotes, our electrifying intra-college event, ignites the campus
             with friendly rivalries as students from across departments battle
             it out in Football, Cricket, Shuttle Cup, and Table Tennis. This
@@ -69,7 +69,7 @@ const Xaplotes = () => {
           </p>
           {/* Default View on Desktop  */}
           {!isMobile && (
-            <p class="m-10 mb-4 text-2xl text-white">
+            <p className="m-10 mb-4 text-2xl text-white">
               The events under the banner of Xaplotes include Xaplotes Football,
               Xaplotes Cricket, Xaplotes Shuttle Cup, and Xaplotes Table Tennis.
               Each of these events brings its own unique flavor to the
@@ -79,7 +79,7 @@ const Xaplotes = () => {
           )}
           {/* Only Visible on mobile when expanded  */}
           {isMobile && isMobileExpanded && (
-            <p class="m-10 mb-4 text-2xl text-white">
+            <p className="m-10 mb-4 text-2xl text-white">
               The events under the banner of Xaplotes include Xaplotes Football,
               Xaplotes Cricket, Xaplotes Shuttle Cup, and Xaplotes Table Tennis.
               Each of these events brings its own unique flavor to the
@@ -90,7 +90,7 @@ const Xaplotes = () => {
           {/* Read More/Less Button for mobile  */}
           {isMobile && (
             <button
-              class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+              className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
               onClick={() => setIsMobileExpanded(!isMobileExpanded)}
             >
               {isMobileExpanded ? "Read Less" : "Read More"}
@@ -99,7 +99,7 @@ const Xaplotes = () => {
           {/* Default Button for Desktop  */}
           {!isMobile && (
             <Link href="/#events">
-              <button class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+              <button className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
                 Check Out Events!
               </button>
             </Link>

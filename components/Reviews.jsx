@@ -3,16 +3,16 @@ import "../app/plainstyles.css";
 
 const Reviews = () => {
   return (
-    <section class="review" id="review">
-      <h2 class="heading">
+    <section className="review" id="review">
+      <h2 className="heading">
         Parcipants <span>Review</span>
       </h2>
 
-      <div class="review-slider swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide box">
-            <i class="fas fa-quote-left"></i>
-            <div class="user-info">
+      <div className="review-slider swiper-container">
+        <div className="swiper-wrapper">
+          <div className="swiper-slide box">
+            <i className="fas fa-quote-left"></i>
+            <div className="user-info">
               <img scr="assets/slide1.JPG" alt="" />
               <h3>John Doe</h3>
               <span>Happy Participant</span>

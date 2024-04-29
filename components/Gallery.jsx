@@ -29,8 +29,8 @@ const Gallery = () => {
   }, []);
 
   return (
-    <section class="gallery" id="gallery">
-      <h1 class="heading">
+    <section className="gallery" id="gallery">
+      <h1 className="heading">
         Our <span>Gallery</span>
       </h1>
 

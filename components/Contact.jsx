@@ -52,12 +52,12 @@ const Contact = () => {
   };
 
   return (
-    <section class="contact" id="contact">
-      <h1 class="heading">
+    <section className="contact" id="contact">
+      <h1 className="heading">
         Contact <span>Us</span>
       </h1>
 
-      <form id="contact_form" class="contact" onSubmit={handleSubmit}>
+      <form id="contact_form" className="contact" onSubmit={handleSubmit}>
         <div className="inputBox">
           <input
             type="text"

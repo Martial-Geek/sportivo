@@ -38,27 +38,27 @@ const Vibgyor = () => {
     };
   }, []);
   return (
-    <section class="vibgyor" id="vibgyor">
-      <h1 class="heading">
+    <section className="vibgyor" id="vibgyor">
+      <h1 className="heading">
         <span>V</span>ibgyor
       </h1>
 
-      <div class="flex flex-col items-center justify-center sm:flex-row">
-        <div class="flex size-[400px] items-center justify-center rounded-lg bg-slate-800 p-8">
+      <div className="flex flex-col items-center justify-center sm:flex-row">
+        <div className="flex size-[400px] items-center justify-center rounded-lg bg-slate-800 p-8">
           <Image
             src={imageUrl}
-            class="object-cover"
+            className="object-cover"
             alt="vibgyor"
             width={500}
             height={500}
           />
         </div>
 
-        <div class="flex-1 p-20">
-          <h3 class="m-10 mb-4 text-5xl font-bold text-white">
+        <div className="flex-1 p-20">
+          <h3 className="m-10 mb-4 text-5xl font-bold text-white">
             Play. Bond. Celebrate
           </h3>
-          <p class="m-10 mb-4 text-2xl text-white">
+          <p className="m-10 mb-4 text-2xl text-white">
             VIBGYOR, a vibrant celebration of sports, lights up our campus each
             year, attracting the largest student gathering in the City of Joy.
             Students from colleges not just in Kolkata, but from far and wide,
@@ -71,7 +71,7 @@ const Vibgyor = () => {
           </p>
           {/* Default visible on desktop  */}
           {!isMobile && (
-            <p class="m-10 mb-4 text-2xl text-white">
+            <p className="m-10 mb-4 text-2xl text-white">
               The events that make up the VIBGYOR sports fest are Football,
               Cricket, Badminton, Chess, Table Tennis, Volleyball, and Kabaddi.
               Each of these events brings its own unique excitement to the fest,
@@ -81,7 +81,7 @@ const Vibgyor = () => {
           )}
           {/* Visible on mobile only when expanded */}
           {isMobile && isMobileExpanded && (
-            <p class="m-10 mb-4 text-2xl text-white">
+            <p className="m-10 mb-4 text-2xl text-white">
               The events that make up the VIBGYOR sports fest are Football,
               Cricket, Badminton, Chess, Table Tennis, Volleyball, and Kabaddi.
               Each of these events brings its own unique excitement to the fest,
@@ -92,7 +92,7 @@ const Vibgyor = () => {
           {/* Read More/Less Button for mobile  */}
           {isMobile && (
             <button
-              class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
+              className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700"
               onClick={() => setIsMobileExpanded(!isMobileExpanded)}
             >
               {isMobileExpanded ? "Read Less" : "Read More"}
@@ -101,7 +101,7 @@ const Vibgyor = () => {
           {/* Default Button for Desktop  */}
           {!isMobile && (
             <Link href="/#events">
-              <button class="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
+              <button className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">
                 Check Out Events!
               </button>
             </Link>

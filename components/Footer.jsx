@@ -9,9 +9,9 @@ import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
-    <section class="footer">
-      <div class="box-container">
-        <div class="box">
+    <section className="footer">
+      <div className="box-container">
+        <div className="box">
           <h3> quick links</h3>
           <a href="#home">
             <FontAwesomeIcon icon={faArrowRight} /> Home
@@ -33,7 +33,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <div class="box">
+        <div className="box">
           <h3> Contact Info</h3>
           <a href="#">
             <FontAwesomeIcon icon={faPhone} /> +91 9836489056
@@ -53,7 +53,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <div class="box mx:auto sm:mx-0">
+        <div className="box mx:auto sm:mx-0">
           <h3> Social Media</h3>
           <a href="https://www.facebook.com/FIEMsportivo/">
             <FontAwesomeIcon icon={faFacebook} /> facebook
@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div class="credit">
+      <div className="credit">
         created by <span>Team Sportivo </span> | all rights reserved
       </div>
     </section>
