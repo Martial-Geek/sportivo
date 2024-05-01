@@ -7,7 +7,7 @@ import { sidebarLinks } from "@/constants/sidebarlinks";
 
 const Sidebar = ({ closeSidebar }) => {
   return (
-    <section className="fixed right-0 top-[55px] z-50 h-screen w-1/2 border-x-0 border-t border-solid border-white bg-[#333] sm:hidden">
+    <section className="fixed right-0 top-[5%] z-50 h-screen w-1/2 border-x-0 border-t border-solid border-white bg-[#333] sm:hidden">
       <div className="flex flex-col gap-6 p-6">
         {sidebarLinks.map((item) => {
           return (

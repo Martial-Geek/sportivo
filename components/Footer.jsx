@@ -34,6 +34,9 @@ const Footer = () => {
           <a href="#gallery">
             <FontAwesomeIcon icon={faArrowRight} /> Gallery
           </a>
+          <a href="#events">
+            <FontAwesomeIcon icon={faArrowRight} /> Events
+          </a>
           <a href="#contact">
             <FontAwesomeIcon icon={faArrowRight} /> Contact
           </a>

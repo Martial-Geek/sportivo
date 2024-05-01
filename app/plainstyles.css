@@ -434,15 +434,17 @@ events */
   }
 
   .gallery .box-container .box {
-    height: auto;
-    border-radius: 0.5rem;
-    border-width: 0.5rem;
+    height: 300px;
+    width: 300px;
+    /* border-radius: 0.5rem;
+    border-width: 0.5rem; */
+    margin: 0 auto;
   }
 
   .gallery .box-container .box img {
-    height: auto;
-    width: 100%;
-    object-fit: cover;
+    height: 280px;
+    width: 280px;
+    /* object-fit: cover; */
     background: #1e293b;
   }
 }

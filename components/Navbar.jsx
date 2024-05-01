@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="header flex justify-between px-6 py-4">
+      <header className="header flex h-36 justify-between px-6 py-4">
         <div className="flex gap-6">
           <Image
             src={"/images/sportivo.gif"}

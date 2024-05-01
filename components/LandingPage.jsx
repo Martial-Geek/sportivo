@@ -41,11 +41,11 @@ const LandingPage = () => {
 
   return (
     <section className="home" id="home">
-      <div className="my-40 w-full">
-        <h1 className="text-center font-serif text-[40px] font-bold text-[#3867d6] sm:text-[80px]">
+      <div className="mb-28 mt-40 w-full">
+        <h1 className="my-14 text-center font-serif text-[40px] font-bold leading-tight text-[#3867d6] sm:text-[80px]">
           Welcome to Team Sportivo
         </h1>
-        <h3 className="mt-4 w-auto px-12 text-center font-serif text-[20px] leading-[30px] text-white sm:p-0 sm:text-[50px] sm:leading-[60px]">
+        <h3 className="w-auto px-12 text-center font-serif text-[20px] leading-[30px] text-white sm:p-0 sm:text-[50px] sm:leading-[60px]">
           The Official Sports Club of Future Institute Of Engineering and
           Management
         </h3>

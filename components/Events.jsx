@@ -62,21 +62,21 @@ const Events = () => {
         Our <span>Events</span>
       </h1>
       <div className="flex flex-col">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-16 sm:grid-cols-3 sm:gap-8">
           {events.map((event, index) => (
             <div
-              className="mx-24 flex flex-col gap-12 rounded-xl bg-[#1e293b] p-8 sm:mx-0"
+              className="mx-24 flex flex-col gap-20 rounded-md bg-[#1e293b] p-8 sm:mx-0 sm:gap-12 sm:rounded-xl"
               key={index}
             >
               <h2 className="font-montserrat mx-auto text-4xl font-semibold text-white">
-                {event.name}
+                {event.name.toUpperCase()}
               </h2>
               <Image
                 src={event.imageSrc}
                 alt={`${event.name} Image`}
                 width={300}
                 height={300}
-                className="mx-auto h-[20vh] w-[50vw] rounded-[3rem] sm:h-[25vh] sm:w-[15vw]"
+                className="mx-auto h-[20vh] w-[50vw] rounded-md sm:h-[25vh] sm:w-[15vw] sm:rounded-[3rem]"
               />
 
               <SignedOut>
