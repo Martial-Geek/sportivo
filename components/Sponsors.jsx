@@ -9,19 +9,11 @@ const Sponsors = () => {
       </h1>
       <div
         id="sponsorList"
-        className="mx-auto flex flex-col items-center gap-10 py-20 sm:flex-col sm:py-36 lg:flex-row lg:justify-around"
+        className="mx-auto flex flex-wrap justify-center gap-10 py-36"
       >
         <div className="relative size-[30rem]">
           <Image
             src="/assets/sponsors/edugraph.jpg"
-            alt="Sponsor 2"
-            fill
-            className="object-contain"
-          />
-        </div>
-        <div className="relative size-[30rem]">
-          <Image
-            src="/assets/sponsors/Decathlon.jpg"
             alt="Sponsor 1"
             fill
             className="object-contain"
@@ -29,8 +21,24 @@ const Sponsors = () => {
         </div>
         <div className="relative size-[30rem]">
           <Image
+            src="/assets/sponsors/Decathlon.jpg"
+            alt="Sponsor 2"
+            fill
+            className="object-fill"
+          />
+        </div>
+        <div className="relative size-[30rem]">
+          <Image
             src="/assets/sponsors/red-fm.jpg"
             alt="Sponsor 3"
+            fill
+            className="object-contain"
+          />
+        </div>
+        <div className="relative size-[30rem]">
+          <Image
+            src="/assets/sponsors/rajpur-chess.jpg"
+            alt="Sponsor 4"
             fill
             className="object-contain"
           />
