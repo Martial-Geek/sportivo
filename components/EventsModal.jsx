@@ -66,8 +66,15 @@ const AdvertisementModal = () => {
                       </p>
                     </div>
                     <div>
-                      <Image
+                      {/* <Image
                         src="/assets/ad-modal/ad.svg"
+                        width={200}
+                        height={200}
+                        alt="Advertisement"
+                        className="my-5 h-[240px] w-[280px] sm:size-[400px]"
+                      /> */}
+                      <Image
+                        src="/assets/ad-modal/alert.svg"
                         width={200}
                         height={200}
                         alt="Advertisement"

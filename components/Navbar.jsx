@@ -46,7 +46,7 @@ const Navbar = () => {
         </nav>
 
         <Image
-          src={"/images/futur.jpg"}
+          src={"/images/future-logo.jpg"}
           width={50}
           height={50}
           alt="logo"

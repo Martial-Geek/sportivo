@@ -3,7 +3,7 @@ const events = [
     id: "gully-cricket",
     name: "Gully Cricket",
     imageSrc: "/assets/gully_Cricket.gif",
-    formLink: "https://forms.gle/znG43FZZqUQ46ESQ8",
+    formLink: "https://forms.gle/kDHKcjEfRuHFBb3Y6",
     description: [
       "GULLY CRICKET:\n",
       "1) Each match will be played on a knockout basis\n",
@@ -18,7 +18,7 @@ const events = [
     id: "futsal",
     name: "Futsal",
     imageSrc: "/assets/futsalgif.gif",
-    formLink: "https://forms.gle/JLxVFRvqaKGgQgkM9",
+    formLink: "https://forms.gle/otVn8hV1vc2BDK5W9",
     description: [
       "FUTSAL:\n",
       "1) Each match will be played on a knockout basis\n",
@@ -33,7 +33,7 @@ const events = [
     id: "chess",
     name: "Chess",
     imageSrc: "/assets/chess.gif",
-    formLink: "https://forms.gle/xTYe5u7aqgv2NN246",
+    formLink: "https://forms.gle/hmuhHgZJTDHemGK56",
     description: `CHESS:
     The tournament has an entry fee of Rs.700 and entries must be submitted online through a Google form by May 9th, 2024. Each player is eligible for one prize only and prizes will not be shared. Lunch will be provided on May 12th, 2024. The tournament consists of a maximum of 7 rounds with a time control of 25 minutes + 3 seconds increment per player. The first round starts at 1:30 PM on May 11th, 2024, with 3 rounds played on the first day and 4 rounds on the second day. The inauguration is at 1:00 PM on May 11th and the prize distribution is at 5:30 PM on May 12th. E-certificates will be provided to all participants.
     
@@ -44,7 +44,7 @@ const events = [
     id: "kabaddi",
     name: "Kabaddi",
     imageSrc: "/assets/kabaddi.gif",
-    formLink: "https://forms.gle/YTeApq9Gy9KBdxVB8",
+    formLink: "https://forms.gle/Li1MadURTcmh3PoZA",
     description: `KABADDI:\n
 Each match will be played on a knockout basis\n
 Number of players per team: 7+3\n
@@ -58,7 +58,7 @@ Rules can be modified by the coordinator if required`,
     id: "badminton",
     name: "Badminton",
     imageSrc: "/assets/badminton.gif",
-    formLink: "https://forms.gle/Y3iAWRhtMRhbQ4CF7",
+    formLink: "https://forms.gle/awgwrwuCFNXfF7tC8",
     description: [
       "BADMINTON:\n",
       "1) Qualifiers will be played for 15 points(1 set)\n",
@@ -72,7 +72,7 @@ Rules can be modified by the coordinator if required`,
     id: "table-tennis",
     name: "Table Tennis",
     imageSrc: "/assets/table tennis.gif",
-    formLink: "https://forms.gle/PQQFc6eKvb93HEyc7",
+    formLink: "https://forms.gle/9RyeXFQRdQJ9zwmF8",
     description: [
       "TABLE TENNIS:\n",
       "1) Each match will be played on a knockout basis\n",

@@ -51,7 +51,7 @@ const Footer = () => {
             <FontAwesomeIcon icon={faPhone} /> +91 9836489056
           </a>
           <a href="#">
-            <FontAwesomeIcon icon={faPhone} /> +91 6297538477
+            <FontAwesomeIcon icon={faPhone} /> +91 6289819071
           </a>
           <a href="#">
             <FontAwesomeIcon icon={faPhone} /> +91 8961677543
