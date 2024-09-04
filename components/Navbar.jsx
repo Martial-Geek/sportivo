@@ -25,6 +25,7 @@ const Navbar = () => {
             height={50}
             className="size-14 rounded-full sm:size-20"
             alt="logo"
+            unoptimized
           />
 
           <a href="#" className="logo my-auto">
