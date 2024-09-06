@@ -25,7 +25,7 @@ const EventRegistration = ({ params }) => {
           />
         </div>
         <div className="flex w-full flex-col justify-end sm:w-3/5" id="right">
-          <div className="flex px-8 py-12 text-2xl leading-10 text-white sm:leading-9">
+          {/* <div className="flex px-8 py-12 text-2xl leading-10 text-white sm:leading-9">
             {params.eventId === "chess" || params.eventId === "kabaddi" ? (
               <p className="pt-48">{description}</p>
             ) : (
@@ -35,6 +35,13 @@ const EventRegistration = ({ params }) => {
                 ))}
               </ol>
             )}
+          </div> */}
+          <div className="flex px-8 py-12 text-2xl leading-10 text-white sm:leading-9">
+            <ol className="leading-10">
+              {description.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ol>
           </div>
           <Link href={formLink} target="_blank" className="mx-auto sm:mx-0">
             <button className="m-10 rounded-lg bg-purple-600 px-6 py-3 text-3xl font-bold text-white hover:bg-purple-700">

@@ -34,10 +34,23 @@ const events = [
     name: "Chess",
     imageSrc: "/assets/chess.gif",
     formLink: "https://forms.gle/hmuhHgZJTDHemGK56",
-    description: `CHESS:
-    The tournament has an entry fee of Rs.700 and entries must be submitted online through a Google form by May 9th, 2024. Each player is eligible for one prize only and prizes will not be shared. Lunch will be provided on May 12th, 2024. The tournament consists of a maximum of 7 rounds with a time control of 25 minutes + 3 seconds increment per player. The first round starts at 1:30 PM on May 11th, 2024, with 3 rounds played on the first day and 4 rounds on the second day. The inauguration is at 1:00 PM on May 11th and the prize distribution is at 5:30 PM on May 12th. E-certificates will be provided to all participants.
-    
-    Participants must provide a valid Aadhaar card or birth certificate for age proof. The tournament will follow the latest FIDE rules and players must arrive at the chess board 15 minutes earlier. Any disputes against the Chief Arbiter’s decision must be protested in writing with a fee of Rs 500/- within 10 minutes of the incident. A three-member appeals committee will be formed before the tournament starts. Absence during any round without written notice will be treated as withdrawal. All participants must have SBDS Registration for the year 2024. Outstation players must arrange their own accommodation. Players can choose to play in the Open category, but requests for group change will not be entertained.`,
+    description: [
+      "CHESS TOURNAMENT:\n",
+      "General Information:\n",
+      "Entry Fee: Rs. 150\n",
+      "Entries: Online through the mentioned Google form\n",
+      "Last Date of Entry: September 18th, 2024\n",
+      "Time Control: 30 minutes per player\n",
+      "First Round: 10:00 AM on September 22nd, 2024\n",
+      "E-Certificates: Provided to all participants\n",
+      "Rules & Regulations:\n",
+      "System of Play: The tournament will be played under the latest FIDE Rules.\n",
+      "Default Time: Players must arrive at the chess board 15 minutes earlier.\n",
+      "Illegal Moves: First Illegal Warning, Second Illegal Loss.\n",
+      "Touch-Move: A player who has the move and touches a piece/pawn on the board must move it, if it’s legal to do so.\n",
+      "Protests: Chief Arbiter's decision is final and binding.\n",
+      "Withdrawal: Absence during any round without written notice will be treated as withdrawal.\n",
+    ],
     registerFunction: "chess()",
   },
   {
@@ -45,13 +58,17 @@ const events = [
     name: "Kabaddi",
     imageSrc: "/assets/kabaddi.gif",
     formLink: "https://forms.gle/Li1MadURTcmh3PoZA",
-    description: `KABADDI:\n
-Each match will be played on a knockout basis\n
-Number of players per team: 7+3\n
-The referee's decision will be final\n
-If a player/team fails to report on the ground on time, the opponent will be given a walkover\n
-The match officials and coordinators have the right to disqualify a team if not maintained proper decorum of the sports or intentionally try to hurt other players.\n
-Rules can be modified by the coordinator if required`,
+    description: [
+      "KABADDI:\n",
+      "General Information:\n",
+      "Each match will be played on a knockout basis\n",
+      "Number of players per team: 7+3\n",
+      "The referee's decision will be final\n",
+      "If a player/team fails to report on the ground on time, the opponent will be given a walkover\n",
+      "Match Officials & Regulations:\n",
+      "The match officials and coordinators have the right to disqualify a team if proper decorum is not maintained or if players intentionally try to hurt others.\n",
+      "Rules can be modified by the coordinator if required.\n",
+    ],
     registerFunction: "volleyball()",
   },
   {
