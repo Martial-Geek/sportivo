@@ -16,8 +16,6 @@ const AboutUs = () => {
   useEffect(() => {
     const imageRef = ref(storage, "assets/aboutus.JPG");
 
-    console.log(imageRef);
-
     getDownloadURL(imageRef)
       .then((url) => {
         setImageUrl(url);

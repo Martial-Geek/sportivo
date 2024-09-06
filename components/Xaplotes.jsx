@@ -15,8 +15,6 @@ const Xaplotes = () => {
   useEffect(() => {
     const imageRef = ref(storage, "assets/xap.gif");
 
-    console.log(imageRef);
-
     getDownloadURL(imageRef)
       .then((url) => {
         setImageUrl(url);
@@ -45,13 +43,15 @@ const Xaplotes = () => {
       </h1>
       <div className="flex flex-col items-center justify-center sm:flex-row">
         <div className="flex size-[350px] items-center justify-center rounded-lg bg-slate-800 p-8">
-          <Image
-            src={imageUrl}
-            className="object-cover"
-            alt="xap"
-            width={450}
-            height={450}
-          />
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              className="object-cover"
+              alt="xap"
+              width={450}
+              height={450}
+            />
+          )}
         </div>
 
         <div className="flex-1 p-20">

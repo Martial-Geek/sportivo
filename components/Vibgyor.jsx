@@ -15,8 +15,6 @@ const Vibgyor = () => {
   useEffect(() => {
     const imageRef = ref(storage, "assets/vib.gif");
 
-    console.log(imageRef);
-
     getDownloadURL(imageRef)
       .then((url) => {
         setImageUrl(url);
@@ -37,6 +35,7 @@ const Vibgyor = () => {
       window.removeEventListener("resize", handleResize); // Clean up
     };
   }, []);
+
   return (
     <section className="vibgyor" id="vibgyor">
       <h1 className="heading">
@@ -45,13 +44,15 @@ const Vibgyor = () => {
 
       <div className="flex flex-col items-center justify-center sm:flex-row">
         <div className="flex size-[350px] items-center justify-center rounded-lg bg-slate-800 p-8">
-          <Image
-            src={imageUrl}
-            className="object-cover"
-            alt="vibgyor"
-            width={500}
-            height={500}
-          />
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              className="object-cover"
+              alt="vibgyor"
+              width={500}
+              height={500}
+            />
+          )}
         </div>
 
         <div className="flex-1 p-20">

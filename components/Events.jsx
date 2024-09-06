@@ -2,14 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import storage from "@/firebaseConfig";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Link from "next/link"; // Import Link from Next.js
 import "../app/plainstyles.css";
 import Image from "next/image";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
+  const { data: session } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     const storageRef = ref(storage, "assets/events");
@@ -79,12 +82,7 @@ const Events = () => {
                 className="mx-auto h-[20vh] w-[50vw] rounded-md sm:h-[25vh] sm:w-[15vw] sm:rounded-[3rem]"
               />
 
-              <SignedOut>
-                <SignInButton className="font-roboto mx-auto w-fit rounded-xl bg-[#33465d] px-8 py-4 text-3xl font-semibold text-white hover:bg-blue-700">
-                  Sign In to Register
-                </SignInButton>
-              </SignedOut>
-              <SignedIn>
+              {session?.user ? (
                 <Link
                   href={`/event-reg/${event.id}`}
                   passHref
@@ -97,7 +95,15 @@ const Events = () => {
                     Register
                   </button>
                 </Link>
-              </SignedIn>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => router.push("/sign-in")}
+                  className="flex items-center space-x-4 rounded-md bg-gray-800 px-4 py-2 text-gray-100 transition-colors duration-300 hover:bg-gray-700"
+                >
+                  Sign In
+                </button>
+              )}
             </div>
           ))}
         </div>

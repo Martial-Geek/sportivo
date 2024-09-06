@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const EventRegistration = ({ params }) => {
-  console.log(params.eventId);
   const imgUrl = events.find((event) => event.id === params.eventId).imageSrc;
   const formLink = events.find((event) => event.id === params.eventId).formLink;
   const description = events.find(

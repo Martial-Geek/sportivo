@@ -1,10 +1,8 @@
 import React from "react";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark, neobrutalism } from "@clerk/themes";
+import NextAuthProvider from "@/components/providers/NextAuthProvider";
 import { Inter, Space_Grotesk, Montserrat, Roboto } from "next/font/google";
 
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,24 +39,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: [dark, neobrutalism],
-        elements: {
-          formButtonPrimary: "primary-gradient",
-          footerActionLink: "primary-text-gradient hover:text-primary-500",
-        },
-      }}
-    >
-      <html lang="en">
-        <head></head>
-        <body
-          className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} ${roboto.variable}`}
-        >
-          <Navbar />
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <head></head>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} ${roboto.variable}`}
+      >
+        <NextAuthProvider>{children}</NextAuthProvider>
+      </body>
+    </html>
   );
 }

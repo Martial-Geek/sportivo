@@ -2,10 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
-import { SignedOut, UserButton, SignedIn } from "@clerk/nextjs";
+import { useSession, signOut } from "next-auth/react";
 import { sidebarLinks } from "@/constants/sidebarlinks";
 
 const Sidebar = ({ closeSidebar }) => {
+  const { data: session } = useSession();
+
   return (
     <section className="fixed right-0 top-[5%] z-50 h-screen w-1/2 border-x-0 border-t border-solid border-white bg-[#333] sm:hidden">
       <div className="flex flex-col gap-6 p-6">
@@ -22,41 +24,29 @@ const Sidebar = ({ closeSidebar }) => {
           );
         })}
       </div>
-      <SignedOut>
-        <div className="flex flex-col gap-3 p-6">
-          <Link href="/sign-in" onClick={closeSidebar}>
-            <button className="min-h-[41px] w-full rounded-lg bg-fuchsia-300 px-4 py-3 shadow-none">
-              <span className="text-3xl font-semibold text-slate-900">
-                Log In
-              </span>
-            </button>
-          </Link>
-          <Link href="/sign-up" onClick={closeSidebar}>
-            <button className="min-h-[41px] w-full rounded-lg bg-fuchsia-300 px-4 py-3 shadow-none">
-              <span className="text-3xl font-semibold text-slate-900">
-                Sign Up
-              </span>
-            </button>
-          </Link>
+      {session ? (
+        <div className="flex items-center space-x-4">
+          <p className="text-gray-300">Email: {session.user.email}</p>
+          <button
+            type="button"
+            className="rounded-full bg-orange-500 px-5 py-1.5 text-sm text-white transition-colors duration-300 hover:bg-orange-600"
+            onClick={async () =>
+              await signOut({ callbackUrl: "http://localhost:3000/sign-in" })
+            }
+          >
+            Sign Out
+          </button>
         </div>
-      </SignedOut>
-      <SignedIn>
-        <div className="flex justify-around gap-4 p-4">
-          <p className="my-auto text-4xl font-semibold text-white">Profile</p>
-          {/* Increase the size of the user profile icon  */}
-          <UserButton
-            appearance={{
-              elements: {
-                userButtonAvatarBox: {
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                },
-              },
-            }}
-          />
-        </div>
-      </SignedIn>
+      ) : (
+        <Link href="/sign-in">
+          <button
+            type="button"
+            className="rounded-full bg-orange-500 px-5 py-1.5 text-sm text-white transition-colors duration-300 hover:bg-orange-600"
+          >
+            Sign In
+          </button>
+        </Link>
+      )}
     </section>
   );
 };
