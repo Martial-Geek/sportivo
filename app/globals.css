@@ -5,7 +5,7 @@
 @import url("../styles/theme.css");
 
 body {
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
 }
 
 @layer utilities {
@@ -19,6 +19,14 @@ body {
 
   .flex-start {
     @apply flex justify-start items-center;
+  }
+
+  .custom-signin-btn {
+    @apply flex justify-center gap-3 items-center rounded-lg font-semibold font-sans bg-white px-4 py-2 text-black  shadow-md hover:bg-gray-200;
+  }
+
+  .custom-btn {
+    @apply flex justify-center gap-3 items-center rounded-lg font-semibold font-roboto bg-slate-700 text-2xl px-10 py-3 text-white shadow-md max-w-fit mx-auto;
   }
 
   .card-wrapper {

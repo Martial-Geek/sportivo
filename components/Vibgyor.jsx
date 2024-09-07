@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import "../app/plainstyles.css";
-import { ref, getDownloadURL } from "firebase/storage";
-import storage from "@/firebaseConfig";
+// import { ref, getDownloadURL } from "firebase/storage";
+// import storage from "@/firebaseConfig";
+import { fetchImage } from "@/utils/getFirebaseImagePath";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,15 +14,10 @@ const Vibgyor = () => {
   const [isMobileExpanded, setIsMobileExpanded] = useState(false);
 
   useEffect(() => {
-    const imageRef = ref(storage, "assets/vib.gif");
-
-    getDownloadURL(imageRef)
-      .then((url) => {
-        setImageUrl(url);
-      })
-      .catch((error) => {
-        console.error("Error getting download URL:", error);
-      });
+    (async () => {
+      const url = await fetchImage("assets/vib.gif");
+      setImageUrl(url);
+    })();
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 767); // Adjust the threshold as needed
@@ -37,8 +33,9 @@ const Vibgyor = () => {
   }, []);
 
   return (
-    <section className="vibgyor" id="vibgyor">
-      <h1 className="heading">
+    /* eslint-disable-next-line tailwindcss/no-custom-classname */
+    <section id="vibgyor">
+      <h1 className="heading py-24">
         <span>V</span>ibgyor
       </h1>
 

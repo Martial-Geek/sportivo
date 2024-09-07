@@ -37,8 +37,8 @@ const Xaplotes = () => {
   }, []);
 
   return (
-    <section className="xaplotes" id="xaplotes">
-      <h1 className="heading">
+    <section id="xaplotes">
+      <h1 className="heading py-24">
         <span>X</span>aplotes
       </h1>
       <div className="flex flex-col items-center justify-center sm:flex-row">

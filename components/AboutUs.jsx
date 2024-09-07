@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import "../app/plainstyles.css";
-import { ref, getDownloadURL } from "firebase/storage";
-import storage from "@/firebaseConfig";
+// import { ref, getDownloadURL } from "firebase/storage";
+// import storage from "@/firebaseConfig";
+import { fetchImage } from "@/utils/getFirebaseImagePath";
 
 import Image from "next/image";
 
@@ -14,15 +15,10 @@ const AboutUs = () => {
   const [isDesktopExpanded, setIsDesktopExpanded] = useState(false);
 
   useEffect(() => {
-    const imageRef = ref(storage, "assets/aboutus.JPG");
-
-    getDownloadURL(imageRef)
-      .then((url) => {
-        setImageUrl(url);
-      })
-      .catch((error) => {
-        console.error("Error getting download URL:", error);
-      });
+    (async () => {
+      const url = await fetchImage("assets/aboutus.webp");
+      setImageUrl(url);
+    })();
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 767); // Adjust the threshold as needed
@@ -37,8 +33,8 @@ const AboutUs = () => {
     };
   }, []);
   return (
-    <section className="aboutus" id="aboutus">
-      <h1 className="heading">
+    <section id="aboutus">
+      <h1 className="heading py-24">
         <span>About</span> Us
       </h1>
       <div className="flex flex-col items-center justify-center sm:flex-row">

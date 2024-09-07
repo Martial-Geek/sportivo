@@ -51,12 +51,15 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-900">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900">
       {!session ? (
         <>
+          <h1 className="font-inter text-3xl font-bold text-gray-300">
+            Please Sign In To Register For Events
+          </h1>
           <form
             onSubmit={handleSubmit}
-            className="mt-10 flex w-full max-w-3xl flex-col gap-7 rounded-lg bg-gray-800 p-6 shadow-lg"
+            className="mx-10 mt-10 flex w-full max-w-xl flex-col gap-7 rounded-lg bg-gray-800 p-6 shadow-lg"
           >
             <label className="flex flex-col">
               <span className="text-base font-semibold text-gray-300">
@@ -100,7 +103,7 @@ const SignInForm = () => {
                     type="button"
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
-                    className="flex items-center space-x-4 rounded-md bg-gray-800 px-4 py-2 text-gray-100 transition-colors duration-300 hover:bg-gray-700"
+                    className="custom-signin-btn"
                   >
                     <Image
                       src="/images/google-logo.svg"

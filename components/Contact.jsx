@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <section className="contact" id="contact">
-      <h1 className="heading">
+      <h1 className="heading pb-12">
         Contact <span>Us</span>
       </h1>
 

@@ -60,8 +60,8 @@ const Events = () => {
   };
 
   return (
-    <section className="events" id="events">
-      <h1 className="heading my-32 text-7xl">
+    <section id="events">
+      <h1 className="heading py-24 text-7xl">
         Our <span>Events</span>
       </h1>
       <div className="flex flex-col">
@@ -71,7 +71,7 @@ const Events = () => {
               className="mx-24 flex flex-col gap-20 rounded-md bg-[#1e293b] p-8 sm:mx-0 sm:gap-12 sm:rounded-xl"
               key={index}
             >
-              <h2 className="font-montserrat mx-auto text-4xl font-semibold text-white">
+              <h2 className="mx-auto font-montserrat text-4xl font-semibold text-white">
                 {event.name.toUpperCase()}
               </h2>
               <Image
@@ -90,7 +90,7 @@ const Events = () => {
                 >
                   <button
                     id={`gullycricketregisterBtn${index + 1}`}
-                    className="font-roboto mx-auto w-fit rounded-xl bg-[#33465d] px-8 py-4 text-3xl font-semibold text-white hover:bg-blue-700"
+                    className="mx-auto w-fit rounded-xl bg-[#33465d] px-8 py-4 font-roboto text-3xl font-semibold text-white hover:bg-blue-700"
                   >
                     Register
                   </button>
@@ -99,9 +99,9 @@ const Events = () => {
                 <button
                   type="button"
                   onClick={() => router.push("/sign-in")}
-                  className="flex items-center space-x-4 rounded-md bg-gray-800 px-4 py-2 text-gray-100 transition-colors duration-300 hover:bg-gray-700"
+                  className="custom-btn"
                 >
-                  Sign In
+                  SIGN IN
                 </button>
               )}
             </div>

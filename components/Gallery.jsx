@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
-import storage from "@/firebaseConfig";
+import { fetchImages } from "@/utils/getFirebaseImagePath";
 import "../app/plainstyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShare, faEye } from "@fortawesome/free-solid-svg-icons";
@@ -10,27 +9,17 @@ import Image from "next/image";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
+
   useEffect(() => {
-    const galleryRef = ref(storage, "images/gallery");
-    listAll(galleryRef)
-      .then((res) => {
-        const promises = res.items.map((itemRef) => getDownloadURL(itemRef));
-        Promise.all(promises)
-          .then((urls) => {
-            setImages(urls.map((url) => ({ src: url })));
-          })
-          .catch((error) => {
-            console.error("Error getting download URLs:", error);
-          });
-      })
-      .catch((error) => {
-        console.error("Error listing images:", error);
-      });
+    (async () => {
+      const urls = await fetchImages("images/gallery");
+      setImages(urls.map((url) => ({ src: url })));
+    })();
   }, []);
 
   return (
     <section className="gallery" id="gallery">
-      <h1 className="heading">
+      <h1 className="heading py-24">
         Our <span>Gallery</span>
       </h1>
 

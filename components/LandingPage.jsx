@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
-import storage from "@/firebaseConfig";
+import { fetchImages } from "@/utils/getFirebaseImagePath";
 import {
   Navigation,
   Pagination,
@@ -22,21 +21,10 @@ const LandingPage = () => {
   const [slides, setSlides] = useState([]);
 
   useEffect(() => {
-    const storageRef = ref(storage, "images/slide");
-    listAll(storageRef)
-      .then((res) => {
-        const promises = res.items.map((itemRef) => getDownloadURL(itemRef));
-        Promise.all(promises)
-          .then((urls) => {
-            setSlides(urls);
-          })
-          .catch((error) => {
-            console.error("Error getting download URLs:", error);
-          });
-      })
-      .catch((error) => {
-        console.error("Error listing slides:", error);
-      });
+    (async () => {
+      const urls = await fetchImages("images/slide");
+      setSlides(urls);
+    })();
   }, []);
 
   return (
