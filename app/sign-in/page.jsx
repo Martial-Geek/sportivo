@@ -7,9 +7,8 @@ import Image from "next/image";
 
 const SignInForm = () => {
   const [providers, setProviders] = useState(null);
-
   const router = useRouter();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession(); // Get session status
 
   useEffect(() => {
     if (session) {
@@ -50,9 +49,14 @@ const SignInForm = () => {
     }
   };
 
+  // Prevent the sign-in form from rendering until the session status is resolved
+  if (status === "loading") {
+    return <></>;
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900">
-      {!session ? (
+      {!session && (
         <>
           <h1 className="font-inter text-3xl font-bold text-gray-300">
             Please Sign In To Register For Events
@@ -71,7 +75,6 @@ const SignInForm = () => {
                 placeholder="Email"
                 className="mt-2 w-full rounded-md border border-gray-600 bg-gray-700 p-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 onChange={handleChange}
-                // value={formData.username}
               />
             </label>
 
@@ -85,7 +88,6 @@ const SignInForm = () => {
                 placeholder="Password"
                 className="mt-2 w-full rounded-md border border-gray-600 bg-gray-700 p-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 onChange={handleChange}
-                // value={formData.password}
               />
             </label>
 
@@ -116,8 +118,6 @@ const SignInForm = () => {
                 ))}
           </form>
         </>
-      ) : (
-        <p className="text-gray-300">Welcome, {session?.user.name}!</p>
       )}
     </div>
   );
