@@ -59,13 +59,14 @@ const LandingPage = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <Image
-              src={slide}
-              alt={`Image ${index}`}
-              height={1000}
-              width={1000}
-              className="mx-auto size-[300px] rounded-xl shadow-xl sm:size-[350px]"
-            />
+            <div className="relative mx-auto size-[300px] shadow-xl sm:size-[350px]">
+              <Image
+                src={slide}
+                alt={`Image ${index}`}
+                fill
+                className="rounded-lg object-cover"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

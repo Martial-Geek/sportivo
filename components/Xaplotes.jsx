@@ -50,6 +50,7 @@ const Xaplotes = () => {
               alt="xap"
               width={450}
               height={450}
+              unoptimized
             />
           )}
         </div>

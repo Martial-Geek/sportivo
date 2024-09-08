@@ -45,14 +45,14 @@ const Navbar = () => {
           <a href="/#sponsers">Sponsors</a>
           <a href="/#contact">Contact Us</a>
         </nav>
-
-        <Image
-          src={"/images/future-logo.jpg"}
-          width={50}
-          height={50}
-          alt="logo"
-          className="size-14 sm:size-20"
-        />
+        <div className=" relative size-14 sm:size-20">
+          <Image
+            src={"/images/future-logo.jpg"}
+            fill
+            alt="logo"
+            className="size-14 object-contain sm:size-20"
+          />
+        </div>
 
         {/* Mobile Menu Bars */}
         <div
