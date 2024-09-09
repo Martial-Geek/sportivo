@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import "../app/plainstyles.css";
-// import { ref, getDownloadURL } from "firebase/storage";
-// import storage from "@/firebaseConfig";
 import { fetchImage } from "@/utils/getFirebaseImagePath";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +37,7 @@ const Vibgyor = () => {
         <span>V</span>ibgyor
       </h1>
 
-      <div className="flex flex-col items-center justify-center sm:flex-row">
+      <div className="flex flex-col items-center justify-center gap-20 sm:flex-row">
         <div className="flex size-[350px] items-center justify-center rounded-lg bg-slate-800 p-8">
           {imageUrl && (
             <Image
@@ -53,7 +51,7 @@ const Vibgyor = () => {
           )}
         </div>
 
-        <div className="flex-1 p-20">
+        <div className="flex-1 max-sm:max-w-[350px]">
           <h3 className="m-10 mb-4 text-5xl font-bold text-white">
             Play. Bond. Celebrate
           </h3>

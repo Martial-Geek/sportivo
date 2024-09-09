@@ -29,7 +29,7 @@ const Sidebar = ({ closeSidebar }) => {
           <p className="text-gray-300">Email: {session.user.email}</p>
           <button
             type="button"
-            className="rounded-full bg-orange-500 px-5 py-1.5 text-sm text-white transition-colors duration-300 hover:bg-orange-600"
+            className="ml-5 w-[100px] rounded-full bg-orange-500 px-6 py-2 text-3xl font-semibold text-white"
             onClick={async () =>
               await signOut({ callbackUrl: "http://localhost:3000/sign-in" })
             }
@@ -41,9 +41,9 @@ const Sidebar = ({ closeSidebar }) => {
         <Link href="/sign-in">
           <button
             type="button"
-            className="rounded-full bg-orange-500 px-5 py-1.5 text-sm text-white transition-colors duration-300 hover:bg-orange-600"
+            className="ml-5 w-[100px] rounded-full bg-orange-500 px-6 py-2 text-3xl font-semibold text-white"
           >
-            Sign In
+            SIGN IN
           </button>
         </Link>
       )}

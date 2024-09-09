@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-
 import "../app/plainstyles.css";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Sidebar from "./Sidebar";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session } = useSession(); // Get the session data
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const closeSidebar = () => {
@@ -27,9 +28,8 @@ const Navbar = () => {
             alt="logo"
             unoptimized
           />
-
           <a href="#" className="logo my-auto">
-            Team <span>Sportivo</span>{" "}
+            Team <span>Sportivo</span>
           </a>
         </div>
 
@@ -44,8 +44,20 @@ const Navbar = () => {
           <a href="/#events">Events</a>
           <a href="/#sponsers">Sponsors</a>
           <a href="/#contact">Contact Us</a>
+
+          {/* Sign In/Sign Out Button */}
+          {session ? (
+            <button onClick={() => signOut()} className="hover:bg-[#3867d6]">
+              Sign Out
+            </button>
+          ) : (
+            <button onClick={() => signIn()} className="hover:bg-[#3867d6]">
+              Sign In
+            </button>
+          )}
         </nav>
-        <div className=" relative size-14 sm:size-20">
+
+        <div className="relative size-14 sm:size-20">
           <Image
             src={"/images/future-logo.jpg"}
             fill
@@ -66,6 +78,7 @@ const Navbar = () => {
           />
         </div>
       </header>
+
       {showMobileMenu && <Sidebar closeSidebar={closeSidebar} />}
     </>
   );

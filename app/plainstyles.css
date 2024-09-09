@@ -104,6 +104,14 @@ section {
   border-radius: 1rem;
 }
 
+.header .navbar button {
+  color: #fff;
+  font-size: 1.7rem;
+  margin-left: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
 .header .navbar a:hover {
   background: var(--main-color);
 }

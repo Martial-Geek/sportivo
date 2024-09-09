@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import "../app/plainstyles.css";
-import { ref, getDownloadURL } from "firebase/storage";
-import storage from "@/firebaseConfig";
+import { fetchImage } from "@/utils/getFirebaseImagePath";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,16 +12,13 @@ const Xaplotes = () => {
   const [isMobileExpanded, setIsMobileExpanded] = useState(false);
 
   useEffect(() => {
-    const imageRef = ref(storage, "assets/xap.gif");
+    (async () => {
+      const url = await fetchImage("assets/xap.gif");
+      setImageUrl(url);
+    })();
+  }, []);
 
-    getDownloadURL(imageRef)
-      .then((url) => {
-        setImageUrl(url);
-      })
-      .catch((error) => {
-        console.error("Error getting download URL:", error);
-      });
-
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 767); // Adjust the threshold as needed
     };
@@ -41,7 +37,7 @@ const Xaplotes = () => {
       <h1 className="heading py-24">
         <span>X</span>aplotes
       </h1>
-      <div className="flex flex-col items-center justify-center sm:flex-row">
+      <div className="flex flex-col items-center justify-center gap-20 sm:flex-row">
         <div className="flex size-[350px] items-center justify-center rounded-lg bg-slate-800 p-8">
           {imageUrl && (
             <Image
@@ -55,7 +51,7 @@ const Xaplotes = () => {
           )}
         </div>
 
-        <div className="flex-1 p-20">
+        <div className="flex-1 max-sm:max-w-[350px]">
           <h3 className="m-10 mb-4 text-5xl font-bold text-white">
             Where Sparks Fly and Friendships Soar!
           </h3>

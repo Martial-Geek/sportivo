@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSession, signIn, getProviders } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 const SignInForm = () => {
   const [providers, setProviders] = useState(null);
@@ -55,10 +56,19 @@ const SignInForm = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 max-md:px-8 max-md:py-28">
       {!session && (
         <>
-          <h1 className="font-inter text-3xl font-bold text-gray-300">
+          <Link
+            href="/"
+            className="absolute left-4 top-4 rounded-2xl bg-indigo-500 px-5 py-2 text-sm font-semibold text-white transition-colors duration-300 hover:bg-indigo-600"
+          >
+            HOME PAGE
+          </Link>
+          <h1 className="my-8 text-5xl font-bold tracking-widest text-[#3867d6]">
+            TEAM SPORTIVO
+          </h1>
+          <h1 className="font-inter text-3xl font-semibold text-gray-300">
             Please Sign In To Register For Events
           </h1>
           <form
