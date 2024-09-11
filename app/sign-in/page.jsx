@@ -24,31 +24,31 @@ const SignInForm = () => {
     })();
   }, []);
 
-  const [signInData, setSignInData] = useState({
-    email: "",
-    password: "",
-  });
+  // const [signInData, setSignInData] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setSignInData((prevSignInData) => ({
-      ...prevSignInData,
-      [name]: value,
-    }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setSignInData((prevSignInData) => ({
+  //     ...prevSignInData,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    const signInResult = await signIn("credentials", {
-      email: signInData.email,
-      password: signInData.password,
-      callbackUrl: "http://localhost:3000/",
-    });
-    if (signInResult?.error) {
-      console.log("Sign-in error:", signInResult.error);
-    }
-  };
+  //   const signInResult = await signIn("credentials", {
+  //     email: signInData.email,
+  //     password: signInData.password,
+  //     callbackUrl: "http://localhost:3000/",
+  //   });
+  //   if (signInResult?.error) {
+  //     console.log("Sign-in error:", signInResult.error);
+  //   }
+  // };
 
   // Prevent the sign-in form from rendering until the session status is resolved
   if (status === "loading") {
@@ -71,7 +71,7 @@ const SignInForm = () => {
           <h1 className="font-inter text-3xl font-semibold text-gray-300">
             Please Sign In To Register For Events
           </h1>
-          <form
+          {/* <form
             onSubmit={handleSubmit}
             className="mx-10 mt-10 flex w-full max-w-xl flex-col gap-7 rounded-lg bg-gray-800 p-6 shadow-lg"
           >
@@ -106,7 +106,9 @@ const SignInForm = () => {
               className="rounded-full bg-indigo-500 px-5 py-2 text-sm text-white transition-colors duration-300 hover:bg-indigo-600"
             >
               Sign in
-            </button>
+            </button> */}
+          {/* </form> */}
+          <div className="mx-10 mt-10 flex w-full max-w-xl flex-col gap-7 rounded-lg bg-gray-800 p-6 shadow-lg">
             {providers &&
               Object.values(providers)
                 .filter((provider) => provider.name !== "Credentials")
@@ -126,7 +128,7 @@ const SignInForm = () => {
                     <div>Sign in with {provider.name}</div>
                   </button>
                 ))}
-          </form>
+          </div>
         </>
       )}
     </div>
